@@ -55,8 +55,11 @@ Check List Ekran Görüntüsü Eklenecek.
 
 ## Ürün Durumu:
 ![Açıklama](ürün.jpg)
+
 ![Açıklama](ürün1.jpg)
+
 ![Açıklama](ürün2.jpg)
+
 ![Açıklama](ürün3.jpg)
 
 ## Sprint Review: 
