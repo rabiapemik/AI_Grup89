@@ -9,7 +9,7 @@
 - Osman Furkan Erkan - Developer
 
 # Ürün İsmi: 
-**Belirlenecek**
+**VitaCheck**
 
 ## Product Backlog URL:
 https://trello.com/b/tQPACGHF/tak%C4%B1m-89
@@ -44,7 +44,7 @@ Bütün proje 250 puan olarak belirlendi.
 3. Sprint: İyileştirme ve Optimizasyon (100 Puan) olmak üzere karar verildi.
 
 ## Daily Scrum: 
-Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu kuruldu. Birinci sprint boyunca 2 kez Zoom toplantısı gerçekleştirildi. Proje kurgusu ve planlaması yapılarak görev dağılımlarına karar verildi. Toplantı ve Wp konuşmalarına dahil görüntüler eklenecek.
+Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu kuruldu. Birinci sprint boyunca 2 kez Zoom toplantısı gerçekleştirildi. Proje kurgusu ve planlaması yapılarak görev dağılımlarına karar verildi. Toplantı ve Wp konuşmalarına dahil görüntüler eklenmiştir.
 
 ## Sprint Board Updates: 
 Check List Ekran Görüntüsü Eklenecek.
