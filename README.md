@@ -45,22 +45,26 @@ Bütün proje 250 puan olarak belirlendi.
 
 ## Daily Scrum: 
 Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu kuruldu. Birinci sprint boyunca 2 kez Zoom toplantısı gerçekleştirildi. Proje kurgusu ve planlaması yapılarak görev dağılımlarına karar verildi. Toplantı ve Wp konuşmalarına dahil görüntüler eklenmiştir.
-![Açıklama](toplantı.jpg)
-![Açıklama](toplantı2.jpg)
+![Açıklama](toplanti.jpg)
+
+![Açıklama](toplanti1.jpg)
+
 ![Açıklama](wp.jpg)
+
 ![Açıklama](wp1.jpg)
 
 ## Sprint Board Updates: 
-Check List Ekran Görüntüsü Eklenecek.
+Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan paketlerin görselleri filtrelenerek eklenmiştir.
+![Açıklama](trello.jpg)
 
 ## Ürün Durumu:
-![Açıklama](ürün.jpg)
+![Açıklama](vitacheck.jpg)
 
-![Açıklama](ürün1.jpg)
+![Açıklama](vitacheck1.jpg)
 
-![Açıklama](ürün2.jpg)
+![Açıklama](vitacheck2.jpg)
 
-![Açıklama](ürün3.jpg)
+![Açıklama](vitacheck3.jpg)
 
 ## Sprint Review: 
 - Proje fikrine karar verildi.
