@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VitaCheck | Doktor VitaCheck Nedir?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background-color: #fff0f0;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 240px;
+      background-color: #ffffff;
+      color: #e63946;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid #f0f0f0;
+    }
+    .sidebar h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .sidebar h2 img {
+      height: 80px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      height: 100%;
+    }
+    .menu-link {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+      display: block;
+    }
+    .menu-link:hover {
+      background-color: #ffe5e5;
+    }
+    .menu-link.active {
+      background-color: #ffe5e5;
+      font-weight: 700;
+    }
+    .menu a + a {
+      border-top: 1px solid #f3c5c5;
+      margin-top: 4px;
+      padding-top: 0.75rem;
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+      padding-bottom: 4rem;
+      overflow-y: auto;
+      max-width: 700px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #e63946;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      color: #444;
+      line-height: 1.6;
+    }
+
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      background-color: #e63946;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+      z-index: 1000;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      text-align: center; 
+    }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      footer {
+        width: 100%;
+        position: static;
+      }
+      .main-content {
+        max-width: 100%;
+        padding: 1rem;
+      }
+      section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <aside class="sidebar">
+    <h2><img src="logo.jpg" alt="VitaCheck Logo" /></h2>
+    <nav class="menu">
+      <a href="doctor-homepage.html" class="menu-link">🏠 Ana Sayfa</a>
+      <a href="doktor-profile.html" class="menu-link">👤 Profil</a>
+      <a href="doktor-kurumum.html" class="menu-link">🏥 Kurumum</a>
+      <a href="doktor-hastalarım.html" class="menu-link">👥 Hastalarım</a>
+      <a href="doktor-yeni-hasta.html" class="menu-link">➕ Yeni Hasta Ekle</a>
+      <a href="doktor-about.html" class="menu-link active">ℹ️ VitaCheck Nedir?</a>
+      <a href="doktor-contact.html" class="menu-link">📞 İletişim</a>
+      <a href="giriş-index.html" class="menu-link" style="border-top: 1px solid #f3c5c5; margin-top: 8px; padding-top: 1rem;">🚪 Çıkış Yap</a>
+    </nav>
+  </aside>
+
+
+  <main class="main-content">
+    <h2>ℹ️ VitaCheck Nedir?</h2>
+
+    <section>
+      <p>örnek</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 VitaCheck. Tüm hakları saklıdır.
+  </footer>
+
+</body>
+</html>

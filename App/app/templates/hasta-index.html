@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VitaCheck | Hasta Girişi</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefefe;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      position: relative;
+      padding: 10px 20px;
+      border-bottom: 2px solid #e63946;
+      background: #f0f7f4;
+      width: 100%;
+      box-sizing: border-box;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 90px;
+      width: auto;
+      margin-left: 0;
+      cursor: pointer;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .header-nav a {
+      font-weight: 600;
+      color: #e63946;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background-color 0.3s, color 0.3s;
+      cursor: pointer;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    .header-nav a:hover {
+      background-color: #e63946;
+      color: white;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 2rem;
+      background-color: #ffffff;
+      border: 2px solid #e63946;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .login-logo {
+      height: 100px;
+      width: auto;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: left;
+    }
+
+    .login-form label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .login-form input {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .login-form input:focus {
+      outline: none;
+      border-color: #e63946;
+    }
+
+    .login-btn {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background-color 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #c92a3c;
+    }
+
+    .register-link, .alt-link {
+      margin-top: 1.2rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .register-link a,
+    .alt-link a {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .register-link a:hover,
+    .alt-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #e63946;
+      color: white;
+      text-align: center;
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="VitaCheck Logo" onclick="location.href='index.html'" />
+    <nav class="header-nav">
+      <a href="VitaChech-homepage.html">Anasayfa</a>
+      <a href="about.html">VitaCheck Nedir?</a>
+      <a href="contact.html">İletişim</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="login-container">
+      <img src="logo.png" alt="VitaCheck Logo" class="login-logo" />
+      <p class="subtitle">Hasta girişi ekranındasınız. Lütfen bilgilerinizi girin.</p>
+
+      <form id="loginForm" class="login-form">
+        <label for="email">E-posta</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Şifre</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit" class="login-btn">Giriş Yap</button>
+      </form>
+
+      <p class="register-link">
+        Hesabınız yok mu? <a href="hasta-register.html">Kayıt Ol</a>
+      </p>
+
+      <p class="alt-link">
+        Yanlış yerdesin? <a href="doktor-index.html">Doktor girişi için buraya tıkla.</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 VitaCheck. Tüm hakları saklıdır. Yapay Zeka 89 Takımının ürünüdür.
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VitaCheck | Giriş</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    position: relative;
+    padding: 10px 20px;
+    border-bottom: 2px solid #e63946;
+    background: #f0f7f4;
+    width: 100%;
+    box-sizing: border-box;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header img {
+    height: 90px;
+    width: auto;
+    margin-left: 0; 
+    cursor: pointer;
+  }
+  .header-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .header-nav a {
+    font-weight: 600;
+    color: #e63946;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+  }
+  .header-nav a:hover {
+    background-color: #e63946;
+    color: white;
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .center-logo {
+    height: 200px; 
+    width: auto;
+  }
+  .subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    color: #222;
+  }
+  .btn-container {
+    display: flex;
+    gap: 40px;
+  }
+  .btn-box {
+    border: 2px solid #e63946;
+    border-radius: 12px;
+    padding: 30px 40px;
+    width: 180px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+  .btn-box:hover {
+    background-color: #e63946;
+    color: white;
+  }
+  .btn-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: #e63946;
+  }
+  .btn-text {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  footer {
+    background-color: #e63946;
+    color: white;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    margin-top: auto;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="VitaCheck Logo" onclick="location.href='index.html'" />
+  <nav class="header-nav">
+    <a href="VitaChech-homepage.html">Anasayfa</a>
+    <a href="doktor-about.html">VitaCheck Nedir?</a>
+    <a href="doktor-iletisim.html">İletişim</a>
+  </nav>
+</header>
+
+<main>
+  <img src="logo.png" alt="VitaCheck Logo" class="center-logo" />
+
+  <div class="subtitle">"Zamanında fark et, riski geride bırak."</div>
+
+  <div class="btn-container">
+    <div class="btn-box" onclick="location.href='doktor-index.html'">
+      <div class="btn-icon">👩‍⚕️</div>
+      <div class="btn-text">Doktor Girişi</div>
+    </div>
+    <div class="btn-box" onclick="location.href='hasta-index.html'">
+      <div class="btn-icon">🧑</div>
+      <div class="btn-text">Hasta Girişi</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2025 VitaCheck. Tüm hakları saklıdır.
+</footer>
+
+</body>
+</html>

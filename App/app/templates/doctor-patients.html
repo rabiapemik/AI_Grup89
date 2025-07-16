@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VitaCheck | Hasta Takip</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefefe;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff0f0;
+      padding: 0.8rem 1.5rem;
+      border-bottom: 2px solid #e63946;
+    }
+
+    .header-left .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #e63946;
+      text-decoration: none;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #e63946;
+    }
+
+    .profile-menu {
+      position: relative;
+    }
+
+    .profile-icon {
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 2rem;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: none;
+      flex-direction: column;
+      min-width: 120px;
+      z-index: 10;
+    }
+
+    .dropdown a {
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.2s;
+    }
+
+    .dropdown a:hover {
+      background-color: #f8d2d2;
+    }
+
+    .profile-menu:hover .dropdown {
+      display: flex;
+    }
+
+    
+
+    main {
+      flex: 1;
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    
+
+    .patient-list {
+      flex: 0 0 220px;
+      border: 2px solid #e63946;
+      border-radius: 12px;
+      background-color: #fff0f0;
+      padding: 1rem;
+      overflow-y: auto;
+      max-height: 600px;
+    }
+
+    .patient-list h2 {
+      color: #e63946;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    .patient-item {
+      background: white;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.7rem;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: border-color 0.3s, background-color 0.3s;
+    }
+
+    .patient-item:hover {
+      background-color: #ffe3e3;
+    }
+
+    .patient-item.active {
+      border-color: #e63946;
+      background-color: #ffd6d6;
+      font-weight: 600;
+    }
+
+  
+
+    .patient-details {
+      flex: 1;
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .patient-details h2 {
+      color: #e63946;
+      margin-bottom: 0.8rem;
+    }
+
+    .patient-info {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.4;
+    }
+    .profile-menu {
+    position: relative;
+    display: inline-block; 
+    }
+
+    .profile-menu:hover .dropdown,
+    .dropdown:hover {
+        display: flex;
+    }
+
+
+   
+
+    .chart-container {
+      flex: 1;
+    }
+
+
+
+    footer {
+      background-color: #e63946;
+      color: white;
+      text-align: center;
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    
+    .patient-list::-webkit-scrollbar {
+      width: 8px;
+    }
+    .patient-list::-webkit-scrollbar-thumb {
+      background-color: #e63946;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+
+<header class="site-header">
+  <div class="header-left">
+    <a href="index.html" class="logo">
+      ❤️ VitaCheck
+    </a>
+  </div>
+
+  <nav class="header-nav">
+    <a href="about.html" class="nav-link">VitaCheck Nedir?</a>
+    <a href="contact.html" class="nav-link">İletişim</a>
+
+    <div class="profile-menu">
+      <div class="profile-icon">👤</div>
+      <div class="dropdown">
+        <a href="profile.html">Profilim</a>
+        <a href="logout.html">Çıkış Yap</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+  <main>
+    <aside class="patient-list" id="patientList">
+      <h2>Hastalar</h2>
+      <!-- Hasta isimleri backend'den gelecek, örnek: -->
+      <div class="patient-item active" data-id="1">Hasta 1 - Ahmet Y.</div>
+      <div class="patient-item" data-id="2">Hasta 2 - Ayşe K.</div>
+      <div class="patient-item" data-id="3">Hasta 3 - Mehmet T.</div>
+    </aside>
+
+    <section class="patient-details" id="patientDetails">
+        <h2>Hasta 1 - Ahmet Y.</h2>
+
+        <div class="doctor-hospital-info">
+            <p><strong>Doktor:</strong> Dr. Can Yılmaz</p>
+            <p><strong>Hastane:</strong> Ege Üniversitesi Tıp Fakültesi</p>
+        </div>
+
+        <div class="patient-info" id="patientInfo">
+            <p><strong>Yaş:</strong> 54</p>
+            <p><strong>Son Kontrol Tarihi:</strong> 2025-07-01</p>
+            <p><strong>Risk Durumu:</strong> Orta Risk</p>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="riskChart" width="600" height="300"></canvas>
+        </div>
+        </section>
+  </main>
+
+  
+  <footer>
+    © 2025 VitaCheck. Tüm hakları saklıdır. Yapay Zeka 89 Takımının ürünüdür.
+  </footer>
+
+  <script>
+    // Örnek hastalar ve verileri (backendden JSON ile gelecek)
+    const patients = {
+      1: {
+        name: "Hasta 1 - Ahmet Y.",
+        age: 54,
+        lastCheck: "2025-07-01",
+        riskStatus: "Orta Risk",
+        chartLabels: ["2025-06-01", "2025-06-15", "2025-07-01"],
+        chartData: [30, 50, 45]
+      },
+      2: {
+        name: "Hasta 2 - Ayşe K.",
+        age: 62,
+        lastCheck: "2025-06-28",
+        riskStatus: "Yüksek Risk",
+        chartLabels: ["2025-05-20", "2025-06-10", "2025-06-28"],
+        chartData: [70, 85, 90]
+      },
+      3: {
+        name: "Hasta 3 - Mehmet T.",
+        age: 47,
+        lastCheck: "2025-07-02",
+        riskStatus: "Düşük Risk",
+        chartLabels: ["2025-06-05", "2025-06-20", "2025-07-02"],
+        chartData: [10, 15, 8]
+      }
+    };
+
+  
+    let selectedPatientId = 1;
+    let riskChart;
+
+    function updatePatientDetails(id) {
+      selectedPatientId = id;
+      const patient = patients[id];
+
+  
+      document.querySelector("#patientDetails h2").textContent = patient.name;
+      document.getElementById("patientInfo").innerHTML = `
+        <p><strong>Yaş:</strong> ${patient.age}</p>
+        <p><strong>Son Kontrol Tarihi:</strong> ${patient.lastCheck}</p>
+        <p><strong>Risk Durumu:</strong> ${patient.riskStatus}</p>
+      `;
+
+     
+      if (riskChart) {
+        riskChart.data.labels = patient.chartLabels;
+        riskChart.data.datasets[0].data = patient.chartData;
+        riskChart.update();
+      }
+    }
+
+    
+    function setupPatientList() {
+      const list = document.getElementById("patientList");
+      list.querySelectorAll(".patient-item").forEach(item => {
+        item.addEventListener("click", () => {
+          
+          list.querySelectorAll(".patient-item").forEach(i => i.classList.remove("active"));
+          item.classList.add("active");
+
+          
+          updatePatientDetails(item.getAttribute("data-id"));
+        });
+      });
+    }
+
+    
+    function createChart() {
+      const ctx = document.getElementById('riskChart').getContext('2d');
+      riskChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: patients[selectedPatientId].chartLabels,
+          datasets: [{
+            label: 'Risk Seviyesi (%)',
+            data: patients[selectedPatientId].chartData,
+            borderColor: '#e63946',
+            backgroundColor: 'rgba(230, 57, 70, 0.2)',
+            fill: true,
+            tension: 0.3,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              min: 0,
+              max: 100,
+              ticks: {
+                stepSize: 20,
+                color: '#e63946',
+                font: {
+                  weight: '600'
+                }
+              },
+              grid: {
+                color: '#f0f0f0'
+              }
+            },
+            x: {
+              ticks: {
+                color: '#555',
+                font: {
+                  weight: '500'
+                }
+              },
+              grid: {
+                color: '#f0f0f0'
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              labels: {
+                color: '#e63946',
+                font: {
+                  weight: '700'
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    
+    window.addEventListener("DOMContentLoaded", () => {
+      setupPatientList();
+      createChart();
+    });
+  </script>
+
+</body>
+</html>

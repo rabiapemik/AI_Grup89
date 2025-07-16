@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VitaCheck | Doktor Profil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background-color: #fff0f0;
+    }
+    
+    .sidebar {
+      width: 240px;
+      background-color: #ffffff;
+      color: #e63946;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid #f0f0f0;
+    }
+    .sidebar h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #e63946;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .sidebar h2 img {
+      height: 80px;
+      width: auto;
+      display: block;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      height: 100%;
+    }
+    .menu-link {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+      display: block;
+    }
+    .menu-link:hover {
+      background-color: #ffe5e5;
+    }
+    .menu-link.active {
+      background-color: #ffe5e5;
+      font-weight: 700;
+    }
+    .menu a + a {
+      border-top: 1px solid #f3c5c5;
+      margin-top: 4px;
+      padding-top: 0.75rem;
+    }
+    /* MAIN CONTENT */
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+      padding-bottom: 4rem;
+      overflow-y: auto;
+      max-width: 700px;
+      width: 100%;
+    }
+    h2 {
+      color: #e63946;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .doctor-info {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      color: #444;
+    }
+    .doctor-info h3 {
+      color: #e63946;
+      margin-bottom: 1rem;
+      border-left: 4px solid #e63946;
+      padding-left: 0.75rem;
+    }
+    .info-row {
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .info-row span {
+      font-weight: 400;
+      margin-left: 6px;
+    }
+    .patient-count {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #e63946;
+      text-align: center;
+    }
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #e63946;
+    }
+    button {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+      font-weight: 600;
+    }
+    button:hover {
+      background-color: #c92a3c;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      background-color: #e63946;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center; /* Ortala */
+      align-items: center;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+      z-index: 1000;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      text-align: center; /* Metni ortala */
+    }
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      footer {
+        width: 100%;
+        position: static;
+      }
+      form {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <aside class="sidebar">
+    <h2>
+      <img src="logo.jpg" alt="VitaCheck Logo" />
+    </h2>
+    <nav class="menu">
+      <a href="doctor-homepage.html" class="menu-link">🏠 Ana Sayfa</a>
+      <a href="doktor-profile.html" class="menu-link active">👤 Profil</a>
+      <a href="doktor-kurumum.html" class="menu-link">🏥 Kurumum</a>
+      <a href="doktor-hastalarım.html" class="menu-link">👥 Hastalarım</a>
+      <a href="doktor-yeni-hasta.html" class="menu-link">➕ Yeni Hasta Ekle</a>
+      <a href="doktor-about.html" class="menu-link">ℹ️ VitaCheck Nedir?</a>
+      <a href="doktor-contact.html" class="menu-link">📞 İletişim</a>
+      <a href="giriş-index.html" class="menu-link" style="border-top: 1px solid #f3c5c5; margin-top: 8px; padding-top: 1rem;">🚪 Çıkış Yap</a>
+    </nav>
+  </aside>
+
+
+  <main class="main-content">
+    <h2>Doktor Profilim</h2>
+
+    <section class="doctor-info">
+      <h3>Doktor Bilgileri</h3>
+      <div class="info-row"><strong>İsim:</strong> <span>Dr. Osman Furkan Erkan</span></div>
+      <div class="info-row"><strong>Bölüm:</strong> <span>Kardiyoloji Uzmanı</span></div>
+      <div class="info-row"><strong>Doktor ID:</strong> <span>DF123456</span></div>
+      <div class="info-row"><strong>E-posta:</strong> <span>doktor.furkan@vitacheck.com</span></div>
+    </section>
+
+    <div class="patient-count">👥 Toplam Hasta Sayısı: <strong>125</strong></div>
+
+    <form id="changePasswordForm" onsubmit="handleSubmit(event)">
+      <h3 style="color:#e63946; margin-bottom:1.5rem; border-left:4px solid #e63946; padding-left:0.75rem;">Şifreni Güncelle</h3>
+
+      <label for="currentPassword">Mevcut Şifre</label>
+      <input type="password" id="currentPassword" name="currentPassword" required />
+
+      <label for="newPassword">Yeni Şifre</label>
+      <input type="password" id="newPassword" name="newPassword" required />
+
+      <label for="confirmPassword">Yeni Şifre (Tekrar)</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required />
+
+      <button type="submit">Şifreyi Güncelle</button>
+    </form>
+  </main>
+
+  <footer>
+    © 2025 VitaCheck. Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const current = document.getElementById('currentPassword').value;
+      const newPass = document.getElementById('newPassword').value;
+      const confirm = document.getElementById('confirmPassword').value;
+
+      if (newPass !== confirm) {
+        alert('Yeni şifre ve tekrarı eşleşmiyor!');
+        return;
+      }
+
+      
+
+      alert('Şifre başarıyla güncellendi.');
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>
