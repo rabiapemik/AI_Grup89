@@ -60,7 +60,9 @@ Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu 
 Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan paketlerin görselleri filtrelenerek eklenmiştir.
 <details>
   <summary>Tamamlanan Paketler</summary>
+   
   ![Açıklama](sprint1/trello.jpg)
+  
 <details>
   
 ## Ürün Durumu:
