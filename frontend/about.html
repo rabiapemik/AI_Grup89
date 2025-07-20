@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VitaCheck | Hakkında</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e63946, #f4a1a1 70%, #f4a1a1 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+
+    header {
+      padding: 20px 40px;
+      background: #f7f7f7;
+      color: rgb(80, 80, 80);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #e63946;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header img {
+      height: 80px;
+      cursor: pointer;
+    }
+
+    nav a {
+      color: rgb(80, 80, 80);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      user-select: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #e63946;
+      color: white;
+    }
+
+
+    main {
+      max-width: 720px;
+      margin: 2rem auto 3rem auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      padding: 2.5rem 3rem;
+      text-align: center;
+      flex-grow: 1;
+      color: #555;
+    }
+    main h2 {
+      color: #e63946;
+      margin-bottom: 1.5rem;
+    }
+    main p {
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      white-space: pre-line;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+
+    footer {
+      background-color: #e63946;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: auto;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="VitaCheck Logo" onclick="location.href='VitaChech-homepage.html'" />
+    <nav>
+      <a href="VitaChech-homepage.html">Anasayfa</a>
+      <a href="about.html" class="active">VitaCheck Nedir?</a>
+      <a href="contact.html">İletişim</a>
+    </nav>
+  </header>
+
+  <main id="aboutContent">
+    <h2>Hakkımızda</h2>
+    <p>
+      Hepimiz kalbimizin sağlıklı kalmasını isteriz, değil mi? İşte bu yüzden biz bu projeyi geliştirdik! Kullanıcının kendi sağlık verilerini ve grafiklerini yükleyip, Gemini’nin yapay zekasıyla kalp krizi riskini hesaplayan bir sistem yaptık.
+    </p>
+    <p>
+      Ama iş burada bitmiyor! Risk varsa sana özel diyet ve spor önerileri sunuyoruz, böylece kalbini koruyabilmen için yanında oluyoruz. Üstelik, durum biraz kritikse seni hemen bir doktora yönlendiriyoruz; çünkü sağlık her şeyden önemli.
+    </p>
+    <p>
+      Amacımız, teknolojiyi kullanarak sağlıklı yaşam yolunda sana gerçek ve faydalı destek sağlamak. Sen yeter ki kendine iyi bak, biz buradayız!
+    </p>
+  </main>
+
+  <footer>
+   © 2025 VitaCheck. Tüm hakları saklıdır. Yapay Zeka 89 Takımının ürünüdür.
+  </footer>
+
+</body>
+</html>

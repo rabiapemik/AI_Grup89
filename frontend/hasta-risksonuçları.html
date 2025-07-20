@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VitaCheck | Risk Sonuçları</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: #fffafa;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex: 1;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 240px;
+      background-color: #ffffff;
+      color: #e63946;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid #f0f0f0;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo-container img {
+      width: 200px;
+      height: auto;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .menu-link {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+      display: block;
+    }
+
+    .menu-link:hover {
+      background-color: #ffe5e5;
+    }
+
+    .menu-link.active {
+      background-color: #ffe5e5;
+      font-weight: 700;
+    }
+
+    .menu a + a {
+      border-top: 1px solid #f3c5c5;
+      margin-top: 4px;
+      padding-top: 0.75rem;
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      background-image: url("doktor-hasta-arkaplan.jpg");
+      flex: 1;
+      padding: 2rem;
+      padding-bottom: 6rem;
+      overflow-y: auto;
+    }
+
+    h2 {
+      color: #e63946;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .chart-container {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .summary {
+      max-width: 700px;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 240px;        /* Sidebar genişliği kadar sola kaydır */
+      width: calc(100vw - 240px);  /* Toplam genişlikten sidebar genişliğini çıkar */
+      background-color: #e63946;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+      z-index: 1000;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      text-align: center; 
+    }
+
+    .page-title {
+      font-size: 1.8rem;
+      color: #e63946;
+      margin-bottom: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+    }
+  </style>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="content-wrapper">
+  
+    <aside class="sidebar">
+      <div class="logo-container" onclick="location.href='VitaChech-homepage.html'" style="cursor: pointer;">
+        <img src="logo.jpg" alt="VitaCheck Logo">
+      </div>
+      <nav class="menu">
+        <a href="hasta-homepage.html" class="menu-link">🏠 Anasayfa</a>
+        <a href="hasta_profile.html" class="menu-link">👤 Profil</a>
+        <a href="hastanın-doctor.html" class="menu-link">👨‍⚕️ Doktorum</a>
+        <a href="hasta-raporlarim.html" class="menu-link">📄 Raporlarım</a>
+        <a href="hasta-riskibelirle.html" class="menu-link">📊 Riskimi Belirle</a>
+        <a href="hasta-risksonuçları.html" class="menu-link active">📊 Risk Sonuçları</a>
+        <a href="hasta-about.html" class="menu-link">❓ VitaCheck Nedir?</a>
+        <a href="hasta-contact.html" class="menu-link">📞 İletişim</a>
+        <a href="VitaChech-homepage.html" class="menu-link" style="border-top: 1px solid #f3c5c5; margin-top: 8px; padding-top: 1rem;">🚪 Çıkış Yap</a>
+      </nav>
+    </aside>
+
+
+    <main class="main-content">
+      <div class="page-title">Risk Sonuçları</div>
+
+
+      <div class="chart-container">
+        <canvas id="riskChart" aria-label="Kalp krizi risk grafiği" role="img"></canvas>
+      </div>
+
+      <p class="summary">
+        Son 6 ay içerisinde kalp krizi risk skorunuzda gözle görülür değişiklikler oldu. Risk skorunuzun azalması, sağlıklı yaşam alışkanlıklarınızı sürdürdüğünüzün göstergesidir. Lütfen düzenli kontrollerinizi ihmal etmeyiniz.
+      </p>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 VitaCheck. Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('riskChart').getContext('2d');
+
+    const riskChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Şub 2025', 'Mar 2025', 'Nis 2025', 'May 2025', 'Haz 2025', 'Tem 2025'],
+        datasets: [{
+          label: 'Risk Skoru (%)',
+          data: [25, 22, 20, 18, 17, 15],
+          borderColor: '#e63946',
+          backgroundColor: 'rgba(230, 57, 70, 0.2)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          pointBackgroundColor: '#e63946',
+          pointHoverBackgroundColor: '#c5303f'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: '#e63946', font: { size: 14, weight: '600' } }
+          },
+          tooltip: {
+            callbacks: {
+              label: context => context.parsed.y + ' %'
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 40,
+            ticks: {
+              color: '#999',
+              stepSize: 5,
+              callback: val => val + '%'
+            },
+            grid: {
+              color: '#f0f0f0'
+            }
+          },
+          x: {
+            ticks: {
+              color: '#999',
+            },
+            grid: {
+              color: '#f0f0f0'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
