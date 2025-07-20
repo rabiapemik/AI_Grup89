@@ -47,35 +47,33 @@ Bütün proje 250 puan olarak belirlendi.
 Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu kuruldu. Birinci sprint boyunca 2 kez Zoom toplantısı gerçekleştirildi. Proje kurgusu ve planlaması yapılarak görev dağılımlarına karar verildi. 
 <details>
   <summary>Toplantı ve Wp Konuşmalarına Dahil Görüntüler</summary>
-  ![Açıklama](sprint1/toplanti.jpeg)
 
-  ![Açıklama](sprint1/toplanti1.jpeg)
-
-  ![Açıklama](sprint1/wp.jpg)
-
+  ![Açıklama](sprint1/toplanti.jpeg)  
+  ![Açıklama](sprint1/toplanti1.jpeg)  
+  ![Açıklama](sprint1/wp.jpg)  
   ![Açıklama](sprint1/wp1.jpg)  
+
 </details>
 
 ## Sprint Board Updates: 
 Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan paketlerin görselleri filtrelenerek eklenmiştir.
 <details>
   <summary>Tamamlanan Paketler</summary>
-   
+
   ![Açıklama](sprint1/trello.jpg)
-  
-<details>
+
+</details>
   
 ## Ürün Durumu:
 <details>
-  <summary>Ürün Görselleri</summary>  
-  ![Açıklama](sprint1/vitacheck.jpeg)
+  <summary>Ürün Görselleri</summary>
 
-  ![Açıklama](sprint1/vitacheck1.jpeg)
+  ![Açıklama](sprint1/vitacheck.jpeg)  
+  ![Açıklama](sprint1/vitacheck1.jpeg)  
+  ![Açıklama](sprint1/vitacheck2.jpeg)  
+  ![Açıklama](sprint1/vitacheck3.jpeg)  
 
-  ![Açıklama](sprint1/vitacheck2.jpeg)
-
-  ![Açıklama](sprint1/vitacheck3.jpeg)
-<details>
+</details>
 
 ## Sprint Review: 
 - Proje fikrine karar verildi.
@@ -102,13 +100,14 @@ Bütün proje 250 puan olarak belirlendi.
 
 ## Daily Scrum: 
 Proje süresince iletişim Whatsapp Grubu üzerinden sağlanmaya devam etti. İkinci sprint boyunca 1 kez Zoom toplantısı gerçekleştirildi. Toplantıda Veri Analizi tarafında yapılacaklar iş paketleri ve veri üzerine konuşuldu. Frontend tarafında bitirilen paketler ve ürünün son hali incelendi. İyileştirme önerileri sunuldu. Toplantı ve Wp konuşmalarına dahil görüntüler eklenmiştir.
+
 <details>
   <summary>Toplantı ve Wp Konuşmalarına Dahil Görüntüler</summary>
-  ![Açıklama](sprint2/toplanti.jpeg)
 
-  ![Açıklama](sprint2/wp.jpg)
-
+  ![Açıklama](sprint2/toplanti.jpeg)  
+  ![Açıklama](sprint2/wp.jpg)  
   ![Açıklama](sprint2/wp1.jpg)  
+
 </details>
 
 ## Sprint Board Updates: 
