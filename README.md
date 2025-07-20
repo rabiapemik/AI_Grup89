@@ -190,4 +190,6 @@ Bu sprintte, ekibimizin gösterdiği çaba ve iş birliği sayesinde birçok ön
 - Frontend ve Backend entegrasyonu gibi alanlarda, ilerleyen sprintler için daha detaylı teknik planlamaların yapılması gerektiği görüldü.
 
 **Alınan Kararlar**  
+- Projenin son aşamasında tüm süreci daha iyi yönetebilmek adına üç günde bir toplantı yapılmasına karar verildi.
+- Özellikle yapay zeka entegrasyonu, database ile model bağlantısı ve iyileştirmeler üzerine daha fazla teknik toplantı ve araştırma yapılmasına karar verildi.
 
