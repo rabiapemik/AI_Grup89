@@ -104,9 +104,9 @@ Proje süresince iletişim Whatsapp Grubu üzerinden sağlanmaya devam etti. İk
 <details>
   <summary>Toplantı ve Wp Konuşmalarına Dahil Görüntüler</summary>
 
-  ![Açıklama](Sprint2/toplanti.jpeg)  
-  ![Açıklama](Sprint2/wp.jpg)  
-  ![Açıklama](Sprint2/wp1.jpg)  
+  ![Açıklama](Sprint2/toplanti.png)  
+  ![Açıklama](Sprint2/wp.png)  
+  ![Açıklama](Sprint2/wp1.png)  
 
 </details>
 
