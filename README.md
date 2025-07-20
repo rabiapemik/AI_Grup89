@@ -32,10 +32,56 @@ Bu projeyle, bireylerin kendi kalp sağlıkları konusunda daha bilinçli ve pro
 * Ailesinde kalp hastalığı öyküsü olanlar
 * Kalp rahatsızlığı süphesi olanlar
 
-# Sprint 1
+# 📌 Sprint 1
 ----------------------------------------------------
-## Tahmin Edilen Tamamlanacak Puan:  
-250 Puan
+## Sprint için Tahmin Edilen Tamamlanacak Puan:  
+50 Puan
+
+## Tahmin Mantığı: 
+Bütün proje 250 puan olarak belirlendi. 
+1. Sprint: Araştırma ve Planlama (50 Puan)
+2. Sprint: Veri Analizi, Database Tasarımı, Frontend ve Backend (100 Puan)
+3. Sprint: Yapay Zeka Entegrasyonu, İyileştirme ve Optimizasyon (100 Puan) olmak üzere karar verildi.
+
+## Daily Scrum: 
+Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu kuruldu. Birinci sprint boyunca 2 kez Zoom toplantısı gerçekleştirildi. Proje kurgusu ve planlaması yapılarak görev dağılımlarına karar verildi. Toplantı ve Wp konuşmalarına dahil görüntüler eklenmiştir.
+![Açıklama](sprint1/toplanti.jpeg)
+
+![Açıklama](sprint1/toplanti1.jpeg)
+
+![Açıklama](sprint1/wp.jpg)
+
+![Açıklama](sprint1/wp1.jpg)
+
+## Sprint Board Updates: 
+Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan paketlerin görselleri filtrelenerek eklenmiştir.
+![Açıklama](sprint1/trello.jpg)
+
+## Ürün Durumu:
+![Açıklama](sprint1/vitacheck.jpeg)
+
+![Açıklama](sprint1/vitacheck1.jpeg)
+
+![Açıklama](sprint1/vitacheck2.jpeg)
+
+![Açıklama](sprint1/vitacheck3.jpeg)
+
+## Sprint Review: 
+- Proje fikrine karar verildi.
+- Veri seti seçimi (**Heart Disease Risk Prediction Dataset**) yapıldı.
+- Problem-Çözüm, Hedef Kitle, Kısıtlar belirlendi.
+- Projenin genel mimarisi belirlendi.
+- Görev dağılımları gerçekleştirildi.
+- Yol haritası oluşturuldu.
+*- Sprint Katılımcıları: Yakup Sinan Gedikli, Rabia Pemik, İshak Karataş, Gülse Kocabıyık, Osman Furkan Erkan*
+
+## Sprint Retrospective: 
+Kısa süre içerisinde tüm ekip üyeleriyle iletişimi sağlayabildik. Fakat final haftası, staj ve iş yoğunluğu gibi ekip üyelerinin süreçlerinden dolayı çok yoğunlaşamadık bir sonra ki sprintte daha yoğun çalışılması planlandı. ekip üyeleriyle uygunluk zamanları belirlendi.
+
+# 📌 Sprint 2
+----------------------------------------------------
+## Sprint için Tahmin Edilen Tamamlanacak Puan:  
+100 Puan
 
 ## Tahmin Mantığı: 
 Bütün proje 250 puan olarak belirlendi. 
@@ -44,7 +90,7 @@ Bütün proje 250 puan olarak belirlendi.
 3. Sprint: İyileştirme ve Optimizasyon (100 Puan) olmak üzere karar verildi.
 
 ## Daily Scrum: 
-Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu kuruldu. Birinci sprint boyunca 2 kez Zoom toplantısı gerçekleştirildi. Proje kurgusu ve planlaması yapılarak görev dağılımlarına karar verildi. Toplantı ve Wp konuşmalarına dahil görüntüler eklenmiştir.
+Proje süresince iletişim Whatsapp Grubu üzerinden sağlanmaya devam etti. İkinci sprint boyunca 1 kez Zoom toplantısı gerçekleştirildi. Toplantıda Veri Analizi tarafında yapılacaklar iş paketleri ve veri üzerine konuşuldu. Frontend tarafında bitirilen paketler ve ürünün son hali incelendi. İyileştirme önerileri sunuldu. Toplantı ve Wp konuşmalarına dahil görüntüler eklenmiştir.
 ![Açıklama](sprint1/toplanti.jpeg)
 
 ![Açıklama](sprint1/toplanti1.jpeg)
@@ -77,3 +123,4 @@ Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan pa
 
 ## Sprint Retrospective: 
 Kısa süre içerisinde tüm ekip üyeleriyle iletişimi sağlayabildik. Fakat final haftası, staj ve iş yoğunluğu gibi ekip üyelerinin süreçlerinden dolayı çok yoğunlaşamadık bir sonra ki sprintte daha yoğun çalışılması planlandı. ekip üyeleriyle uygunluk zamanları belirlendi.
+
