@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VitaCheck | Hastalarım</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff0f0;
+    }
+
+    .page-wrapper {
+      display: flex;
+      overflow: hidden;
+      min-height: 100vh; /* opsiyonel */
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 240px;
+      height: 100vh;
+      background-color: #fff;
+      color: #e63946;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid #f0f0f0;
+      overflow-y: auto;
+      z-index: 1100;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #e63946;
+    }
+    .sidebar h2 img {
+      height: 80px;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-grow: 1;
+    }
+    .menu-link {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+      display: block;
+    }
+    .menu-link:hover {
+      background-color: #ffe5e5;
+    }
+    .menu a + a {
+      border-top: 1px solid #f3c5c5;
+      margin-top: 4px;
+      padding-top: 0.75rem;
+    }
+    .menu-link.active {
+      background-color: #ffe5e5;
+      font-weight: 700;
+    }
+
+    main.main-content {
+      margin-left: 240px;
+      padding: 2rem;
+      max-width: 1400px;
+      width: 100%;
+      overflow-y: auto;
+      background-image: url("doktor-hasta-arkaplan.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #444;
+    }
+    h2 {
+      color: #e63946;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .patients-list {
+      list-style: none;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+      background: white;
+      padding: 0;
+    }
+    .patients-list li {
+      padding: 12px 20px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      transition: background-color 0.25s;
+      font-weight: 600;
+      color: #e63946;
+    }
+    .patients-list li:last-child {
+      border-bottom: none;
+    }
+    .patients-list li:hover,
+    .patients-list li.active {
+      background-color: #ffe5e5;
+    }
+
+    .patient-details {
+      margin-top: 2rem;
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      color: #444;
+    }
+    .patient-details h3 {
+      color: #e63946;
+      margin-bottom: 1rem;
+      border-left: 4px solid #e63946;
+      padding-left: 0.75rem;
+    }
+    .detail-row {
+      margin-bottom: 0.8rem;
+    }
+    .detail-row strong {
+      display: inline-block;
+      width: 130px;
+    }
+
+    .chart-placeholder {
+      margin-top: 1.5rem;
+      height: 200px;
+      background: #f8d2d2;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #b33a3a;
+      font-weight: 700;
+      font-size: 1.2rem;
+      user-select: none;
+    }
+
+    footer {
+      background-color: #e63946;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      text-align: center;
+      margin-left: 240px;
+      width: calc(100% - 240px);
+      /* position, bottom, fixed vb yok! */
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      main.main-content {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 1rem;
+        background-image: none;
+      }
+      footer {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <aside class="sidebar">
+      <h2>
+        <img src="logo.jpg" alt="VitaCheck Logo" onclick="location.href='VitaChech-homepage.html'" />
+      </h2>
+      <nav class="menu">
+        <a href="doctor-homepage.html" class="menu-link">🏠 Ana Sayfa</a>
+        <a href="doktor-profile.html" class="menu-link">👤 Profil</a>
+        <a href="doktor-kurumum.html" class="menu-link">🏥 Kurumum</a>
+        <a href="doktor-hastalarım.html" class="menu-link active">👥 Hastalarım</a>
+        <a href="doktor-yeni-hasta.html" class="menu-link">➕ Yeni Hasta Ekle</a>
+        <a href="doktor-about.html" class="menu-link">ℹ️ VitaCheck Nedir?</a>
+        <a href="doktor-contact.html" class="menu-link">📞 İletişim</a>
+        <a href="giriş-index.html" class="menu-link" style="border-top: 1px solid #f3c5c5; margin-top: 8px; padding-top: 1rem;">🚪 Çıkış Yap</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h2>Hastalarım</h2>
+      <ul class="patients-list" id="patientsList">
+        <li data-id="1" class="active">Ayşe Yılmaz</li>
+        <li data-id="2">Mehmet Demir</li>
+        <li data-id="3">Zeynep Kaya</li>
+        <li data-id="4">Ahmet Can</li>
+        <li data-id="5">Elif Şahin</li>
+      </ul>
+
+      <div class="patient-details" id="patientDetails">
+        <!-- Hasta detayları buraya gelecek -->
+      </div>
+    </main>
+
+  </div>
+
+  <footer>
+    © 2025 VitaCheck. Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    const patients = {
+      1: {
+        name: "Ayşe Yılmaz",
+        age: 45,
+        gender: "Kadın",
+        phone: "+90 555 123 4567",
+        lastCheck: "10 Temmuz 2025",
+        riskScore: "Orta (%22)",
+        notes: "Düzenli egzersiz önerildi.",
+        chartText: "Kalp ritmi grafik gösterimi (Ayşe Yılmaz)"
+      },
+      2: {
+        name: "Mehmet Demir",
+        age: 58,
+        gender: "Erkek",
+        phone: "+90 555 234 5678",
+        lastCheck: "3 Temmuz 2025",
+        riskScore: "Yüksek (%38)",
+        notes: "Diyet ve ilaç takibi önemli.",
+        chartText: "Kalp ritmi grafik gösterimi (Mehmet Demir)"
+      },
+      3: {
+        name: "Zeynep Kaya",
+        age: 52,
+        gender: "Kadın",
+        phone: "+90 555 345 6789",
+        lastCheck: "5 Temmuz 2025",
+        riskScore: "Düşük (%10)",
+        notes: "Genel durum iyi.",
+        chartText: "Kalp ritmi grafik gösterimi (Zeynep Kaya)"
+      },
+      4: {
+        name: "Ahmet Can",
+        age: 63,
+        gender: "Erkek",
+        phone: "+90 555 456 7890",
+        lastCheck: "8 Temmuz 2025",
+        riskScore: "Orta (%25)",
+        notes: "Düzenli takip gerekiyor.",
+        chartText: "Kalp ritmi grafik gösterimi (Ahmet Can)"
+      },
+      5: {
+        name: "Elif Şahin",
+        age: 50,
+        gender: "Kadın",
+        phone: "+90 555 567 8901",
+        lastCheck: "1 Temmuz 2025",
+        riskScore: "Düşük (%12)",
+        notes: "İyi durumda, takip önerildi.",
+        chartText: "Kalp ritmi grafik gösterimi (Elif Şahin)"
+      }
+    };
+
+    const patientsListEl = document.getElementById('patientsList');
+    const patientDetailsEl = document.getElementById('patientDetails');
+
+    function renderPatientDetails(id) {
+      const p = patients[id];
+      patientDetailsEl.innerHTML = `
+        <h3>${p.name}</h3>
+        <div class="detail-row"><strong>Yaş:</strong> ${p.age}</div>
+        <div class="detail-row"><strong>Cinsiyet:</strong> ${p.gender}</div>
+        <div class="detail-row"><strong>Telefon:</strong> ${p.phone}</div>
+        <div class="detail-row"><strong>Son Kontrol Tarihi:</strong> ${p.lastCheck}</div>
+        <div class="detail-row"><strong>Risk Skoru:</strong> ${p.riskScore}</div>
+        <div class="detail-row"><strong>Notlar:</strong> ${p.notes}</div>
+        <div class="chart-placeholder">${p.chartText}</div>
+      `;
+    }
+
+    renderPatientDetails(1);
+
+    patientsListEl.addEventListener('click', e => {
+      if(e.target.tagName === 'LI') {
+        [...patientsListEl.children].forEach(li => li.classList.remove('active'));
+        e.target.classList.add('active');
+        const id = e.target.getAttribute('data-id');
+        renderPatientDetails(id);
+      }
+    });
+  </script>
+
+</body>
+</html>

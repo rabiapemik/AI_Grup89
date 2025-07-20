@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VitaCheck | Doktor İletişim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      background-color: #fff0f0;
+      display: block; /* flex kaldırıldı */
+      overflow-x: hidden;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 240px;
+      height: 100vh;
+      background-color: #ffffff;
+      color: #e63946;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid #f0f0f0;
+      overflow-y: auto;
+    }
+    .sidebar h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .sidebar h2 img {
+      height: 80px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      height: 100%;
+    }
+    .menu-link {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+      display: block;
+    }
+    .menu-link:hover {
+      background-color: #ffe5e5;
+    }
+    .menu-link.active {
+      background-color: #ffe5e5;
+      font-weight: 700;
+    }
+    .menu a + a {
+      border-top: 1px solid #f3c5c5;
+      margin-top: 4px;
+      padding-top: 0.75rem;
+    }
+
+    .main-content {
+      margin-left: 240px; /* sidebar genişliği kadar boşluk */
+      padding: 2rem;
+      max-width: 1400px;
+      background-image: url("doktor-hasta-arkaplan.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: calc(100vh - 80px); /* footer yüksekliği kadar boşluk */
+      color: #444;
+      overflow-y: auto;
+    }
+
+    h2 {
+      color: #e63946;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+
+    section h3 {
+      color: #e63946;
+      margin-bottom: 1rem;
+    }
+
+    /* Feedback form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: #e63946;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 0.6rem 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: vertical;
+      font-family: 'Inter', sans-serif;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #e63946;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    button {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: 600;
+      max-width: 200px;
+      align-self: center;
+    }
+    button:hover {
+      background-color: #c92a3c;
+    }
+
+    footer {
+      position: relative; /* sabit değil */
+      width: 100%;
+      margin-left: 240px; /* sidebar boşluğu */
+      background-color: #e63946;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main-content {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 1rem;
+      }
+      footer {
+        margin-left: 0;
+      }
+      section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      button {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <h2>
+      <img src="logo.jpg" alt="VitaCheck Logo" onclick="location.href='VitaChech-homepage.html'" />
+    </h2>
+
+    <nav class="menu">
+      <a href="doctor-homepage.html" class="menu-link">🏠 Ana Sayfa</a>
+      <a href="doktor-profile.html" class="menu-link">👤 Profil</a>
+      <a href="doktor-kurumum.html" class="menu-link">🏥 Kurumum</a>
+      <a href="doktor-hastalarım.html" class="menu-link">👥 Hastalarım</a>
+      <a href="doktor-yeni-hasta.html" class="menu-link">➕ Yeni Hasta Ekle</a>
+      <a href="doktor-about.html" class="menu-link">ℹ️ VitaCheck Nedir?</a>
+      <a href="doktor-contact.html" class="menu-link active">📞 İletişim</a>
+      <a href="giriş-index.html" class="menu-link" style="border-top: 1px solid #f3c5c5; margin-top: 8px; padding-top: 1rem;">🚪 Çıkış Yap</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <h2>📞 İletişim</h2>
+
+    <section>
+      <h3>🏥 Kurum İletişim Bilgileri</h3>
+      <p><strong>Kurum Adı:</strong> Ege Üniversitesi Tıp Fakültesi Hastanesi</p>
+      <p><strong>Adres:</strong> Bornova, İzmir</p>
+      <p><strong>Telefon:</strong> +90 232 123 45 67</p>
+      <p><strong>E-posta:</strong> kurum@ege.edu.tr</p>
+    </section>
+
+    <section>
+      <h3>🛠️ VitaCheck Destek Ekibi</h3>
+      <p><strong>Telefon:</strong> +90 850 123 4567</p>
+      <p><strong>E-posta:</strong> destek@vitacheck.com</p>
+      <p><strong>Çalışma Saatleri:</strong> Hafta içi 09:00 - 18:00</p>
+    </section>
+
+    <section>
+      <h3>📝 Geri Bildirim</h3>
+      <form id="feedbackForm" novalidate>
+        <label for="name">Adınız Soyadınız</label>
+        <input type="text" id="name" name="name" placeholder="Adınız Soyadınız" required />
+
+        <label for="email">E-posta Adresiniz</label>
+        <input type="email" id="email" name="email" placeholder="E-posta adresiniz" required />
+
+        <label for="message">Mesajınız</label>
+        <textarea id="message" name="message" placeholder="Geri bildiriminizi yazınız..." required></textarea>
+
+        <button type="submit">Gönder</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 VitaCheck. Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Geri bildiriminiz alındı, teşekkür ederiz!');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
