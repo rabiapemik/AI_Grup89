@@ -104,9 +104,9 @@ Proje süresince iletişim Whatsapp Grubu üzerinden sağlanmaya devam etti. İk
 <details>
   <summary>Toplantı ve Wp Konuşmalarına Dahil Görüntüler</summary>
 
-  ![Açıklama](sprint2/toplanti.jpeg)  
-  ![Açıklama](sprint2/wp.jpg)  
-  ![Açıklama](sprint2/wp1.jpg)  
+  ![Açıklama](Sprint2/toplanti.jpeg)  
+  ![Açıklama](Sprint2/wp.jpg)  
+  ![Açıklama](Sprint2/wp1.jpg)  
 
 </details>
 
@@ -123,23 +123,23 @@ Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan pa
 <details>
   <summary>Sprint-2 Ürün Görselleri</summary>
   
-  ![Açıklama](sprint2/vitacheck_anasayfa.jpeg)
-  ![Açıklama](sprint2/vitachech_hakkimizda.jpeg)
-  ![Açıklama](sprint2/vitacheck_iletisim.jpeg)
-  ![Açıklama](sprint2/vitacheck_giris_sayfasi.jpeg)
-  ![Açıklama](sprint2/doktor_anayfasi.jpeg)
-  ![Açıklama](sprint2/doktor_giris_sayfasi.jpeg)
-  ![Açıklama](sprint2/doktor_hastalarim_sayfasi.jpeg)
-  ![Açıklama](sprint2/doktor_kurum_bilgi_sayfasi.jpeg)
-  ![Açıklama](sprint2/doktor_profil_sayfasi.jpeg)
-  ![Açıklama](sprint2/hasta_kayit_sayfasi.jpeg)
-  ![Açıklama](sprint2/hasta_anasayfa.jpeg)
-  ![Açıklama](sprint2/hasta_giris_sayfasi.jpeg)
-  ![Açıklama](sprint2/hasta_iletisim_sayfasi.jpeg)
-  ![Açıklama](sprint2/hasta_profil_sayfasi.jpeg)
-  ![Açıklama](sprint2/hasta_raporlarim_sayfasi.jpeg)
-  ![Açıklama](sprint2/risk_belirleme_anketi.jpeg)
-  ![Açıklama](sprint2/risk_sonuc.jpeg)
+  ![Açıklama](Sprint2/vitacheck_anasayfa.jpeg)
+  ![Açıklama](Sprint2/vitachech_hakkimizda.jpeg)
+  ![Açıklama](Sprint2/vitacheck_iletisim.jpeg)
+  ![Açıklama](Sprint2/vitacheck_giris_sayfasi.jpeg)
+  ![Açıklama](Sprint2/doktor_anayfasi.jpeg)
+  ![Açıklama](Sprint2/doktor_giris_sayfasi.jpeg)
+  ![Açıklama](Sprint2/doktor_hastalarim_sayfasi.jpeg)
+  ![Açıklama](Sprint2/doktor_kurum_bilgi_sayfasi.jpeg)
+  ![Açıklama](Sprint2/doktor_profil_sayfasi.jpeg)
+  ![Açıklama](Sprint2/hasta_kayit_sayfasi.jpeg)
+  ![Açıklama](Sprint2/hasta_anasayfa.jpeg)
+  ![Açıklama](Sprint2/hasta_giris_sayfasi.jpeg)
+  ![Açıklama](Sprint2/hasta_iletisim_sayfasi.jpeg)
+  ![Açıklama](Sprint2/hasta_profil_sayfasi.jpeg)
+  ![Açıklama](Sprint2/hasta_raporlarim_sayfasi.jpeg)
+  ![Açıklama](Sprint2/risk_belirleme_anketi.jpeg)
+  ![Açıklama](Sprint2/risk_sonuc.jpeg)
   
 <details>
 
