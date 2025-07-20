@@ -58,7 +58,7 @@ Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu 
 ## Sprint Board Updates: 
 Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan paketlerin görselleri filtrelenerek eklenmiştir.
 <details>
-  <summary>Tamamlanan Paketler</summary>
+  <summary>Sprint-1 Tamamlanan Paketler</summary>
 
   ![Açıklama](sprint1/trello.jpg)
 
@@ -66,7 +66,7 @@ Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan pa
   
 ## Ürün Durumu:
 <details>
-  <summary>Ürün Görselleri</summary>
+  <summary> Sprint-1 Ürün Görselleri</summary>
 
   ![Açıklama](sprint1/vitacheck.jpeg)  
   ![Açıklama](sprint1/vitacheck1.jpeg)  
@@ -112,16 +112,37 @@ Proje süresince iletişim Whatsapp Grubu üzerinden sağlanmaya devam etti. İk
 
 ## Sprint Board Updates: 
 Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan paketlerin görselleri filtrelenerek eklenmiştir.
-![Açıklama](sprint1/trello.jpg)
+<details>
+  <summary>Sprint-2 Tamamlanan Paketler</summary>
+  
+  ![Açıklama](sprint1/trello.jpg)
+
+</details>
 
 ## Ürün Durumu:
-![Açıklama](sprint1/vitacheck.jpeg)
+<details>
+  <summary>Sprint-2 Ürün Görselleri</summary>
+  
+  ![Açıklama](sprint2/vitacheck_anasayfa.jpeg)
+  ![Açıklama](sprint2/vitachech_hakkimizda.jpeg)
+  ![Açıklama](sprint2/vitacheck_iletisim.jpeg)
+  ![Açıklama](sprint2/vitacheck_giris_sayfasi.jpeg)
+  ![Açıklama](sprint2/doktor_anayfasi.jpeg)
+  ![Açıklama](sprint2/doktor_giris_sayfasi.jpeg)
+  ![Açıklama](sprint2/doktor_hastalarim_sayfasi.jpeg)
+  ![Açıklama](sprint2/doktor_kurum_bilgi_sayfasi.jpeg)
+  ![Açıklama](sprint2/doktor_profil_sayfasi.jpeg)
+  ![Açıklama](sprint2/hasta_kayit_sayfasi.jpeg)
+  ![Açıklama](sprint2/hasta_anasayfa.jpeg)
+  ![Açıklama](sprint2/hasta_giris_sayfasi.jpeg)
+  ![Açıklama](sprint2/hasta_iletisim_sayfasi.jpeg)
+  ![Açıklama](sprint2/hasta_profil_sayfasi.jpeg)
+  ![Açıklama](sprint2/hasta_raporlarim_sayfasi.jpeg)
+  ![Açıklama](sprint2/risk_belirleme_anketi.jpeg)
+  ![Açıklama](sprint2/risk_sonuc.jpeg)
+  
+<details>
 
-![Açıklama](sprint1/vitacheck1.jpeg)
-
-![Açıklama](sprint1/vitacheck2.jpeg)
-
-![Açıklama](sprint1/vitacheck3.jpeg)
 
 ## Sprint Review: 
 - Proje fikrine karar verildi.
