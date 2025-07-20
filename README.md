@@ -178,5 +178,16 @@ Bu sprintte, projemizin temel yapı taşlarından olan veri analizi, frontend ve
 *- Sprint Katılımcıları: Osman Furkan Erkan, Yakup Sinan Gedikli, Rabia Pemik, Gülse Kocabıyık, İshak Karataş*
 
 ## Sprint Retrospective: 
-Kısa süre içerisinde tüm ekip üyeleriyle iletişimi sağlayabildik. Fakat final haftası, staj ve iş yoğunluğu gibi ekip üyelerinin süreçlerinden dolayı çok yoğunlaşamadık bir sonra ki sprintte daha yoğun çalışılması planlandı. ekip üyeleriyle uygunluk zamanları belirlendi.
+Bu sprintte, ekibimizin gösterdiği çaba ve iş birliği sayesinde birçok önemli başarı elde ettik. Aynı zamanda, bir sonraki sprintte daha verimli ve etkili olabilmek adına bazı geliştirme alanlarını da belirledik.
+
+**Artılarımız:**
+- 2.Sprint için başarılı bir görev dağılımı gerçekleştirdik. Trello panosunda oluşturduğumuz tüm hedef paketlerimizi tamamladık. Bu sayede Veri Bilimi, Frontend, Backend ve Database alanlarında önemli ilerlemeler kaydedildi.
+- Özellikle kullanıcı ve doktor arayüzleri, anket ve risk sonuç ekranı gibi kritik frontend bileşenlerinin hızlıca tamamlanması projenin ilerlemesi adına büyük bir başarıydı.
+- Veri analizinden model uygulama aşamasına kadar önemli adımlar atılarak yapay zeka entegrasyonuna güçlü bir temel oluşturuldu.
+
+**Geliştirebileceklerimiz**
+- Yoğunluk nedeniyle toplantı sıklığı ve çalışma saatleri konusunda daha iyi bir planlama ihtiyacı doğdu.
+- Frontend ve Backend entegrasyonu gibi alanlarda, ilerleyen sprintler için daha detaylı teknik planlamaların yapılması gerektiği görüldü.
+
+**Alınan Kararlar**  
 
