@@ -115,8 +115,8 @@ Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan pa
 <details>
   <summary>Sprint-2 Tamamlanan Paketler</summary>
   
-  ![Açıklama](Sprint2/trello.png)
   ![Açıklama](Sprint2/trello1.png)
+  ![Açıklama](Sprint2/trello2.png)
 
 </details>
 
