@@ -146,13 +146,37 @@ Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan pa
 
 
 ## Sprint Review: 
-- Proje fikrine karar verildi.
-- Veri seti seçimi (**Heart Disease UCI**) yapıldı.
-- Problem-Çözüm, Hedef Kitle, Kısıtlar belirlendi.
-- Projenin genel mimarisi belirlendi.
-- Görev dağılımları gerçekleştirildi.
-- Yol haritası oluşturuldu.
-*- Sprint Katılımcıları: Yakup Sinan Gedikli, Rabia Pemik, İshak Karataş, Gülse Kocabıyık, Osman Furkan Erkan*
+Bu sprintte, projemizin temel yapı taşlarından olan veri analizi, frontend vebackend geliştirme konularında önemli ilerlemeler kaydedilmiştir.
+
+**Veri Analizi:**
+- Karar verilen veri seti (Kaggle üzerinden) incelenmiştir.
+- Verinin inceleneceği ortam Python olarak belirlenmiştir.
+-Veri Keşfi (EDA) süreçleri gerçekleştirilmiştir; veri tipleri, aykırı veri tespiti ve eksik veri tespiti çalışmaları yapılmıştır.
+- Veri ön işleme adımları uygulanmış ve kategorik değişkenler dönüştürülmüştür.
+- Veri seti eğitim, test ve doğrulama setlerine ayrılmıştır.
+- Veri setinde sınıflandırma modelleri uygulanmıştır.
+
+**Frontend Geliştirmeleri:**
+- Kullanıcıların sistemin amacı ve işleyişi hakkında bilgi alabilecekleri "Hakkında" sayfası oluşturulmuştur.
+- Kullanıcı kayıt sayfası oluşturulmuştur.
+- Kullanıcı giriş sayfası oluşturulmuştur.
+- Standart kullanıcı için bir Homepage (anasayfa) oluşturulmuştur.
+- Doktor kullanıcıları için bir Homepage (anasayfa) oluşturulmuştur.
+- Database içinde bulunan istatistiksel verilerin sergilenmesi için bir Html dosyası oluşturulmuştur.
+- Kullanıcıların risk durumlarını kontrol edecekleri form sayfası oluşturulmuştur.
+
+**Database Geliştirmeleri:**
+- Veri incelenerek tablo elemanları belirlenmiştir.
+- Veri içeriğine bağlı olarak EER diyagramları oluşturulmuştur.
+
+**Backend Geliştirmeleri:**
+- SQLAlchemy yardımı ile .db uzantılı database oluşturulmuştur.
+- Kullanıcı giriş ekranında kullanıcı doğrulama işlemi için gerekli kodlar yazılmıştır.
+- Giriş yapan kullanıcıya göre authentication değeri belirlemek için gerekli kodlar yazılmıştır.
+- Standart kullanıcı girişi için gerekli backend kodları yazılmıştır.
+- Doktor girişi için gerekli backend kodları yazılmıştır.
+
+*- Sprint Katılımcıları: Osman Furkan Erkan, Yakup Sinan Gedikli, Rabia Pemik, Gülse Kocabıyık, İshak Karataş*
 
 ## Sprint Retrospective: 
 Kısa süre içerisinde tüm ekip üyeleriyle iletişimi sağlayabildik. Fakat final haftası, staj ve iş yoğunluğu gibi ekip üyelerinin süreçlerinden dolayı çok yoğunlaşamadık bir sonra ki sprintte daha yoğun çalışılması planlandı. ekip üyeleriyle uygunluk zamanları belirlendi.
