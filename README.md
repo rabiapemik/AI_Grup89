@@ -124,25 +124,24 @@ Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan pa
 <details>
   <summary>Sprint-2 Ürün Görselleri</summary>
   
-  ![Açıklama](Sprint2/vitacheck_anasayfa.jpeg)
-  ![Açıklama](Sprint2/vitachech_hakkimizda.jpeg)
-  ![Açıklama](Sprint2/vitacheck_iletisim.jpeg)
-  ![Açıklama](Sprint2/vitacheck_giris_sayfasi.jpeg)
-  ![Açıklama](Sprint2/doktor_anayfasi.jpeg)
-  ![Açıklama](Sprint2/doktor_giris_sayfasi.jpeg)
-  ![Açıklama](Sprint2/doktor_hastalarim_sayfasi.jpeg)
-  ![Açıklama](Sprint2/doktor_kurum_bilgi_sayfasi.jpeg)
-  ![Açıklama](Sprint2/doktor_profil_sayfasi.jpeg)
-  ![Açıklama](Sprint2/hasta_kayit_sayfasi.jpeg)
-  ![Açıklama](Sprint2/hasta_anasayfa.jpeg)
-  ![Açıklama](Sprint2/hasta_giris_sayfasi.jpeg)
-  ![Açıklama](Sprint2/hasta_iletisim_sayfasi.jpeg)
-  ![Açıklama](Sprint2/hasta_profil_sayfasi.jpeg)
-  ![Açıklama](Sprint2/hasta_raporlarim_sayfasi.jpeg)
-  ![Açıklama](Sprint2/risk_belirleme_anketi.jpeg)
+  ![Açıklama](Sprint2/vitacheck_anasayfa.jpeg)  
+  ![Açıklama](Sprint2/vitachech_hakkimizda.jpeg)  
+  ![Açıklama](Sprint2/vitacheck_iletisim.jpeg)  
+  ![Açıklama](Sprint2/vitacheck_giris_sayfasi.jpeg)  
+  ![Açıklama](Sprint2/doktor_anayfasi.jpeg)  
+  ![Açıklama](Sprint2/doktor_giris_sayfasi.jpeg)  
+  ![Açıklama](Sprint2/doktor_hastalarim_sayfasi.jpeg)  
+  ![Açıklama](Sprint2/doktor_kurum_bilgi_sayfasi.jpeg)  
+  ![Açıklama](Sprint2/doktor_profil_sayfasi.jpeg)  
+  ![Açıklama](Sprint2/hasta_kayit_sayfasi.jpeg)  
+  ![Açıklama](Sprint2/hasta_anasayfa.jpeg)  
+  ![Açıklama](Sprint2/hasta_giris_sayfasi.jpeg)  
+  ![Açıklama](Sprint2/hasta_iletisim_sayfasi.jpeg)  
+  ![Açıklama](Sprint2/hasta_profil_sayfasi.jpeg)  
+  ![Açıklama](Sprint2/hasta_raporlarim_sayfasi.jpeg)  
+  ![Açıklama](Sprint2/risk_belirleme_anketi.jpeg)  
   ![Açıklama](Sprint2/risk_sonuc.jpeg)
-  
-<details>
+</details>
 
 
 ## Sprint Review: 
@@ -151,7 +150,7 @@ Bu sprintte, projemizin temel yapı taşlarından olan veri analizi, frontend ve
 **Veri Analizi:**
 - Karar verilen veri seti (Kaggle üzerinden) incelenmiştir.
 - Verinin inceleneceği ortam Python olarak belirlenmiştir.
--Veri Keşfi (EDA) süreçleri gerçekleştirilmiştir; veri tipleri, aykırı veri tespiti ve eksik veri tespiti çalışmaları yapılmıştır.
+- Veri Keşfi (EDA) süreçleri gerçekleştirilmiştir; veri tipleri, aykırı veri tespiti ve eksik veri tespiti çalışmaları yapılmıştır.
 - Veri ön işleme adımları uygulanmış ve kategorik değişkenler dönüştürülmüştür.
 - Veri seti eğitim, test ve doğrulama setlerine ayrılmıştır.
 - Veri setinde sınıflandırma modelleri uygulanmıştır.
