@@ -86,8 +86,8 @@ Kısa süre içerisinde tüm ekip üyeleriyle iletişimi sağlayabildik. Fakat f
 ## Tahmin Mantığı: 
 Bütün proje 250 puan olarak belirlendi. 
 1. Sprint: Araştırma ve Planlama (50 Puan)
-2. Sprint: Veri Analizi, Çözüm Geliştirme ve Yapay Zeka Entegrasyonu (100 Puan)
-3. Sprint: İyileştirme ve Optimizasyon (100 Puan) olmak üzere karar verildi.
+2. Sprint: Veri Analizi, Database Tasarımı, Frontend ve Backend (100 Puan)
+3. Sprint: Yapay Zeka Entegrasyonu, İyileştirme ve Optimizasyon (100 Puan) olmak üzere karar verildi.
 
 ## Daily Scrum: 
 Proje süresince iletişim Whatsapp Grubu üzerinden sağlanmaya devam etti. İkinci sprint boyunca 1 kez Zoom toplantısı gerçekleştirildi. Toplantıda Veri Analizi tarafında yapılacaklar iş paketleri ve veri üzerine konuşuldu. Frontend tarafında bitirilen paketler ve ürünün son hali incelendi. İyileştirme önerileri sunuldu. Toplantı ve Wp konuşmalarına dahil görüntüler eklenmiştir.
