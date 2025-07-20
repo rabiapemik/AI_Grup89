@@ -44,14 +44,19 @@ Bütün proje 250 puan olarak belirlendi.
 3. Sprint: Yapay Zeka Entegrasyonu, İyileştirme ve Optimizasyon (100 Puan) olmak üzere karar verildi.
 
 ## Daily Scrum: 
-Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu kuruldu. Birinci sprint boyunca 2 kez Zoom toplantısı gerçekleştirildi. Proje kurgusu ve planlaması yapılarak görev dağılımlarına karar verildi. Toplantı ve Wp konuşmalarına dahil görüntüler eklenmiştir.
-![Açıklama](sprint1/toplanti.jpeg)
+Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu kuruldu. Birinci sprint boyunca 2 kez Zoom toplantısı gerçekleştirildi. Proje kurgusu ve planlaması yapılarak görev dağılımlarına karar verildi. 
+<details>
+  <summary>Toplantı ve Wp Konuşmalarına Dahil Görüntüler</summary>
 
-![Açıklama](sprint1/toplanti1.jpeg)
+  ![Açıklama](sprint1/toplanti.jpeg)
 
-![Açıklama](sprint1/wp.jpg)
+  ![Açıklama](sprint1/toplanti1.jpeg)
 
-![Açıklama](sprint1/wp1.jpg)
+  ![Açıklama](sprint1/wp.jpg)
+
+  ![Açıklama](sprint1/wp1.jpg)
+  
+</details>
 
 ## Sprint Board Updates: 
 Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan paketlerin görselleri filtrelenerek eklenmiştir.
@@ -65,6 +70,7 @@ Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan pa
 ![Açıklama](sprint1/vitacheck2.jpeg)
 
 ![Açıklama](sprint1/vitacheck3.jpeg)
+
 
 ## Sprint Review: 
 - Proje fikrine karar verildi.
