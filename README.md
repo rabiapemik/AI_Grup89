@@ -60,9 +60,17 @@ Proje süresince sürekli iletişimin sağlanması amacıyla bir Whatsapp Grubu 
 
 ## Sprint Board Updates: 
 Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan paketlerin görselleri filtrelenerek eklenmiştir.
+<details>
+  <summary>Tamamlanan Paketler</summary>
+  
 ![Açıklama](sprint1/trello.jpg)
 
+<details>
+  
 ## Ürün Durumu:
+<details>
+  <summary>Ürün Görselleri</summary>
+  
 ![Açıklama](sprint1/vitacheck.jpeg)
 
 ![Açıklama](sprint1/vitacheck1.jpeg)
@@ -97,13 +105,16 @@ Bütün proje 250 puan olarak belirlendi.
 
 ## Daily Scrum: 
 Proje süresince iletişim Whatsapp Grubu üzerinden sağlanmaya devam etti. İkinci sprint boyunca 1 kez Zoom toplantısı gerçekleştirildi. Toplantıda Veri Analizi tarafında yapılacaklar iş paketleri ve veri üzerine konuşuldu. Frontend tarafında bitirilen paketler ve ürünün son hali incelendi. İyileştirme önerileri sunuldu. Toplantı ve Wp konuşmalarına dahil görüntüler eklenmiştir.
-![Açıklama](sprint1/toplanti.jpeg)
+<details>
+  <summary>Toplantı ve Wp Konuşmalarına Dahil Görüntüler</summary>
 
-![Açıklama](sprint1/toplanti1.jpeg)
+  ![Açıklama](sprint2/toplanti.jpeg)
 
-![Açıklama](sprint1/wp.jpg)
+  ![Açıklama](sprint2/wp.jpg)
 
-![Açıklama](sprint1/wp1.jpg)
+  ![Açıklama](sprint2/wp1.jpg)
+  
+</details>
 
 ## Sprint Board Updates: 
 Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan paketlerin görselleri filtrelenerek eklenmiştir.
