@@ -91,7 +91,7 @@ Kısa süre içerisinde tüm ekip üyeleriyle iletişimi sağlayabildik. Fakat f
 ----------------------------------------------------
 ## Sprint Notları:  
 Bu sprint için tamamlamayı hedeflediğimiz iş paketlerini Trello'da takip ettik. Veri Analizi, Frontend, Backend ve Database iş paketlerinin aynı anda en optimum şekilde ilerletebilmek için görev dağılımlarının üzerinden geçtik.
-- Veri Analizi kısmını Rabia Pemik ve Gülse Kocabıyık
+- Veri Analizi kısmını: Gülse Kocabıyık ve Rabia Pemik
 - Fontend kısmını: Osman Furkan Erkan ve İshak Karataş
 - Backend ve Database kısmını: Yakup Sinan Gedikli yürütmesine karar verildi.
 Planan tüm iş paketleri 2.Sprint sürecinde tamamlandı.
@@ -189,7 +189,7 @@ Bu sprintte, ekibimizin gösterdiği çaba ve iş birliği sayesinde birçok ön
 
 **Artılarımız:**
 - 2.Sprint için başarılı bir görev dağılımı gerçekleştirdik. Trello panosunda oluşturduğumuz tüm hedef paketlerimizi tamamladık. Bu sayede Veri Bilimi, Frontend, Backend ve Database alanlarında önemli ilerlemeler kaydedildi.
-- Özellikle kullanıcı ve doktor arayüzleri, anket ve risk sonuç ekranı gibi kritik frontend bileşenlerinin hızlıca tamamlanması projenin ilerlemesi adına büyük bir başarıydı.
+- Özellikle kullanıcı ve doktor arayüzleri, anket ve risk sonuç ekranı gibi kritik frontend bileşenlerinin hızlıca tamamlanması projenin ilerlemesi adına önemli bir adım oldu.
 - Veri analizinden model uygulama aşamasına kadar önemli adımlar atılarak yapay zeka entegrasyonuna güçlü bir temel oluşturuldu.
 
 **Geliştirebileceklerimiz**
