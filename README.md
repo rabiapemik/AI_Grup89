@@ -89,6 +89,13 @@ Kısa süre içerisinde tüm ekip üyeleriyle iletişimi sağlayabildik. Fakat f
 
 # 📌 Sprint 2
 ----------------------------------------------------
+## Sprint Notları:  
+Bu sprint için tamamlamayı hedeflediğimiz iş paketlerini Trello'da takip ettik. Veri Analizi, Frontend, Backend ve Database iş paketlerinin aynı anda en optimum şekilde ilerletebilmek için görev dağılımlarının üzerinden geçtik.
+- Veri Analizi kısmını Rabia Pemik ve Gülse Kocabıyık
+- Fontend kısmını: Osman Furkan Erkan ve İshak Karataş
+- Backend ve Database kısmını: Yakup Sinan Gedikli yürütmesine karar verildi.
+Planan tüm iş paketleri 2.Sprint sürecinde tamamlandı.
+
 ## Sprint için Tahmin Edilen Tamamlanacak Puan:  
 100 Puan
 
