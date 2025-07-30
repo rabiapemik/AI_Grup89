@@ -26,27 +26,37 @@ class User(Base):
     #kullanıcı admin mi doktor mu ya da tıbbi gözlemci mi burada karar vereceğiz.
     # 0->hasta 1->doktor 2->admin 
     is_admin = Column(Integer, default=0)
+    
+    # Relationships
+    patient = relationship("Patient", back_populates="user", uselist=False)
+    doctor = relationship("Doktor", back_populates="user", uselist=False)
+    health_data = relationship("Health_data", back_populates="user")
+    user_suggestions = relationship("suggestions", back_populates="user")
 
 class Patient(Base):
     __tablename__ = "patients"
     id = Column(Integer, primary_key=True)
-    name = Column(String, ForeignKey("users.username"), nullable=False)
-    surname = Column(String, ForeignKey("users.username"), nullable=False)
+    name = Column(String, nullable=False)
+    surname = Column(String, nullable=False)
     user_id = Column(Integer, ForeignKey("users.id"))
     user = relationship("User", back_populates="patient")
-    doktor_id = Column(Integer, ForeignKey("doktor.id"))
+    doktor_id = Column(Integer, ForeignKey("doktors.id"), nullable=True)
+    doctor = relationship("Doktor", back_populates="patients")
 
 class Doktor(Base):
-    __tablename__ = "doktor"
+    __tablename__ = "doktors"
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     surname = Column(String, nullable=False)
     user_id = Column(Integer, ForeignKey("users.id"))
+    user = relationship("User", back_populates="doctor")
+    patients = relationship("Patient", back_populates="doctor")
 
 class Health_data(Base):
     __tablename__ = "health_data"
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"))
+    user = relationship("User", back_populates="health_data")
     weight =  Column(Integer, nullable=False)
     height =  Column(Integer, nullable=False)
     age = Column(Integer, nullable=False)
@@ -54,7 +64,7 @@ class Health_data(Base):
     chest_pain = Column(Integer, nullable=False)
     shortness_of_breath = Column(Integer, nullable=False)
     fatigue = Column(Integer, nullable=False, default=0)
-    palpations = Column(Integer, nullable=False, default=0)
+    palpitations = Column(Integer, nullable=False, default=0)
     smoker = Column(Integer, nullable=False, default=0)
     diabetes = Column(Integer, nullable=False, default=0)
     dizziness = Column(Integer, nullable=False, default=0)
@@ -76,7 +86,7 @@ class suggestions(Base):
     # ai tarafından alınan veri string yapılarak buraya aktarılacak.
     suggestion = Column(String, nullable=False)
     user_id = Column(Integer, ForeignKey("users.id"))
-    doctor_id = Column(Integer, ForeignKey("doktor.id"))
+    user = relationship("User", back_populates="user_suggestions")
 
 
 

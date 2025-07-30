@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VitaCheck | Yeni Hasta Ekle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #fff0f0;
+      margin: 0;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 240px;
+      height: 100vh;
+      background-color: #ffffff;
+      color: #e63946;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid #f0f0f0;
+      overflow-y: auto;
+      z-index: 1100;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .sidebar h2 a img {
+      height: 80px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      height: 100%;
+    }
+
+    .menu-link {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+      display: block;
+    }
+
+    .menu-link:hover {
+      background-color: #ffe5e5;
+    }
+
+    .menu-link.active {
+      background-color: #ffe5e5;
+      font-weight: 700;
+    }
+
+    .menu a + a {
+      border-top: 1px solid #f3c5c5;
+      margin-top: 4px;
+      padding-top: 0.75rem;
+    }
+
+    main.main-content {
+      margin-left: 240px; /* Sidebar genişliği kadar boşluk */
+      flex: 1;
+      padding: 2rem;
+      max-width: 1400px;
+      width: 100%;
+      margin-top: 0;
+      overflow-y: auto;
+      padding-bottom: 80px; /* Footer yüksekliği kadar boşluk */
+      background-image: url("doktor-hasta-arkaplan.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #444;
+    }
+
+    h2 {
+      color: #e63946;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #e63946;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: 600;
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #c92a3c;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 240px;
+      width: calc(100vw - 240px);
+      background-color: #e63946;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+      z-index: 1000;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 1rem;
+      }
+
+      .content-wrapper {
+        margin-left: 0;
+        flex-direction: column;
+        height: auto;
+      }
+
+      main.main-content {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 1rem;
+        padding-bottom: 80px; /* footer boşluğu */
+        background-image: none;
+      }
+
+      footer {
+        left: 0;
+        width: 100vw;
+        position: fixed;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content-wrapper">
+
+    <aside class="sidebar">
+      <h2>
+        <a href="VitaChech-homepage.html">
+          <img src="logo.jpg" alt="VitaCheck Logo" />
+        </a>
+      </h2>
+      <nav class="menu">
+        <a href="doctor-homepage.html" class="menu-link">🏠 Ana Sayfa</a>
+        <a href="doktor-profile.html" class="menu-link">👤 Profil</a>
+        <a href="doktor-kurumum.html" class="menu-link">🏥 Kurumum</a>
+        <a href="doktor-hastalarım.html" class="menu-link">👥 Hastalarım</a>
+        <a href="doktor-yeni-hasta.html" class="menu-link active">➕ Yeni Hasta Ekle</a>
+        <a href="doktor-about.html" class="menu-link">ℹ️ VitaCheck Nedir?</a>
+        <a href="doktor-contact.html" class="menu-link">📞 İletişim</a>
+        <a href="giriş-index.html" class="menu-link" style="border-top: 1px solid #f3c5c5; margin-top: 8px; padding-top: 1rem;">🚪 Çıkış Yap</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h2>Yeni Hasta Ekle</h2>
+
+      <form id="newPatientForm" novalidate>
+        <label for="name">Ad Soyad</label>
+        <input type="text" id="name" name="name" required placeholder="Hasta adı soyadı" />
+
+        <label for="age">Yaş</label>
+        <input type="number" id="age" name="age" required min="0" max="120" placeholder="Yaş" />
+
+        <label for="gender">Cinsiyet</label>
+        <select id="gender" name="gender" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="Kadın">Kadın</option>
+          <option value="Erkek">Erkek</option>
+        </select>
+
+        <label for="phone">Telefon</label>
+        <input type="tel" id="phone" name="phone" placeholder="Örn: +90 555 123 4567" />
+
+        <label for="notes">Notlar</label>
+        <textarea id="notes" name="notes" placeholder="Ek notlar..."></textarea>
+
+        <button type="submit">Hasta Ekle</button>
+      </form>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 VitaCheck. Tüm hakları saklıdır.
+  </footer>
+
+</body>
+</html>
