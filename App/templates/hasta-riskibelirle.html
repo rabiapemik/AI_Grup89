@@ -242,7 +242,55 @@
       border-top: 2px solid #e63946;
       color: #444;
       font-weight: 600;
-      white-space: pre-line;
+    }
+
+    .ai-section {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(230, 57, 70, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid #e63946;
+    }
+
+    .ai-section h3 {
+      color: #e63946;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    .exercise-card {
+      background: white;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: 1px solid #e63946;
+    }
+
+    .exercise-card h4 {
+      color: #e63946;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .exercise-details {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .lifestyle-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .lifestyle-list li {
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .lifestyle-list li:last-child {
+      border-bottom: none;
     }
 
     /* FOOTER - sabit değil, sayfanın sonunda */
@@ -448,7 +496,27 @@
       <div id="result-container" aria-live="polite" role="region">
         <h2>Risk Değerlendirmeniz</h2>
         <div id="risk-score"></div>
-        <div id="ai-advice"></div>
+        
+        <!-- AI Advice Section -->
+        <div id="ai-advice">
+          <div class="ai-section" id="exercise-recommendations" style="display: none;">
+            <h3>🏃‍♂️ Egzersiz Önerileri</h3>
+            <div id="cardio-exercises"></div>
+            <div id="strength-exercises"></div>
+          </div>
+          
+          <div class="ai-section" id="lifestyle-recommendations" style="display: none;">
+            <h3>💪 Yaşam Tarzı Önerileri</h3>
+            <div id="daily-activities"></div>
+            <div id="stress-management"></div>
+          </div>
+          
+          <div class="ai-section" id="health-monitoring" style="display: none;">
+            <h3>📊 Sağlık Takibi</h3>
+            <div id="vital-signs"></div>
+            <div id="warning-signs"></div>
+          </div>
+        </div>
       </div>
     </main>
   </div>
@@ -463,6 +531,128 @@
     const resultContainer = document.getElementById('result-container');
     const riskScoreEl = document.getElementById('risk-score');
     const aiAdviceEl = document.getElementById('ai-advice');
+
+    // Function to display AI advice
+    function displayAIAdvice(aiAdvice) {
+      let adviceHTML = '';
+      
+      // Exercise recommendations
+      if (aiAdvice.exercise_recommendations) {
+        const exerciseRec = aiAdvice.exercise_recommendations;
+        adviceHTML += '<div class="ai-section" id="exercise-recommendations">';
+        adviceHTML += '<h3>🏃‍♂️ Egzersiz Önerileri</h3>';
+        
+        // Cardio exercises
+        if (exerciseRec.cardio_exercises && exerciseRec.cardio_exercises.length > 0) {
+          adviceHTML += '<h4>Kardiyovasküler Egzersizler:</h4>';
+          exerciseRec.cardio_exercises.forEach(exercise => {
+            adviceHTML += `<div class="exercise-card">
+              <h4>${exercise.name}</h4>
+              <div class="exercise-details">
+                <strong>Süre:</strong> ${exercise.duration}<br>
+                <strong>Sıklık:</strong> ${exercise.frequency}<br>
+                <strong>Yoğunluk:</strong> ${exercise.intensity}<br>
+                <strong>Faydalar:</strong> ${exercise.benefits}<br>
+                <strong>Dikkat:</strong> ${exercise.precautions}
+              </div>
+            </div>`;
+          });
+        }
+        
+        // Strength training
+        if (exerciseRec.strength_training && exerciseRec.strength_training.length > 0) {
+          adviceHTML += '<h4>Güçlendirme Egzersizleri:</h4>';
+          exerciseRec.strength_training.forEach(exercise => {
+            adviceHTML += `<div class="exercise-card">
+              <h4>${exercise.name}</h4>
+              <div class="exercise-details">
+                <strong>Set:</strong> ${exercise.sets}<br>
+                <strong>Tekrar:</strong> ${exercise.reps}<br>
+                <strong>Sıklık:</strong> ${exercise.frequency}<br>
+                <strong>Faydalar:</strong> ${exercise.benefits}<br>
+                <strong>Dikkat:</strong> ${exercise.precautions}
+              </div>
+            </div>`;
+          });
+        }
+        
+        adviceHTML += '</div>';
+      }
+      
+      // Lifestyle recommendations
+      if (aiAdvice.lifestyle_recommendations) {
+        const lifestyleRec = aiAdvice.lifestyle_recommendations;
+        adviceHTML += '<div class="ai-section" id="lifestyle-recommendations">';
+        adviceHTML += '<h3>💪 Yaşam Tarzı Önerileri</h3>';
+        
+        if (lifestyleRec.daily_activities && lifestyleRec.daily_activities.length > 0) {
+          adviceHTML += '<h4>Günlük Aktiviteler:</h4>';
+          adviceHTML += '<ul class="lifestyle-list">';
+          lifestyleRec.daily_activities.forEach(activity => {
+            adviceHTML += `<li>• ${activity}</li>`;
+          });
+          adviceHTML += '</ul>';
+        }
+        
+        if (lifestyleRec.stress_management && lifestyleRec.stress_management.length > 0) {
+          adviceHTML += '<h4>Stres Yönetimi:</h4>';
+          adviceHTML += '<ul class="lifestyle-list">';
+          lifestyleRec.stress_management.forEach(technique => {
+            adviceHTML += `<li>• ${technique}</li>`;
+          });
+          adviceHTML += '</ul>';
+        }
+        
+        adviceHTML += '</div>';
+      }
+      
+      // Health monitoring
+      if (aiAdvice.health_monitoring) {
+        const healthMon = aiAdvice.health_monitoring;
+        adviceHTML += '<div class="ai-section" id="health-monitoring">';
+        adviceHTML += '<h3>📊 Sağlık Takibi</h3>';
+        
+        if (healthMon.vital_signs && healthMon.vital_signs.length > 0) {
+          adviceHTML += '<h4>Takip Edilmesi Gereken Vital Bulgular:</h4>';
+          adviceHTML += '<ul class="lifestyle-list">';
+          healthMon.vital_signs.forEach(sign => {
+            adviceHTML += `<li>• ${sign}</li>`;
+          });
+          adviceHTML += '</ul>';
+        }
+        
+        if (healthMon.warning_signs && healthMon.warning_signs.length > 0) {
+          adviceHTML += '<h4>Dikkat Edilmesi Gereken Uyarı İşaretleri:</h4>';
+          adviceHTML += '<ul class="lifestyle-list">';
+          healthMon.warning_signs.forEach(sign => {
+            adviceHTML += `<li>• ${sign}</li>`;
+          });
+          adviceHTML += '</ul>';
+        }
+        
+        adviceHTML += '</div>';
+      }
+      
+      // Emergency guidance
+      if (aiAdvice.emergency_guidance) {
+        const emergencyGuid = aiAdvice.emergency_guidance;
+        adviceHTML += '<div class="ai-section" id="emergency-guidance">';
+        adviceHTML += '<h3>🚨 Acil Durum Rehberi</h3>';
+        
+        if (emergencyGuid.when_to_seek_help && emergencyGuid.when_to_seek_help.length > 0) {
+          adviceHTML += '<h4>Acil Durum Belirtileri:</h4>';
+          adviceHTML += '<ul class="lifestyle-list">';
+          emergencyGuid.when_to_seek_help.forEach(symptom => {
+            adviceHTML += `<li>• ${symptom}</li>`;
+          });
+          adviceHTML += '</ul>';
+        }
+        
+        adviceHTML += '</div>';
+      }
+      
+      aiAdviceEl.innerHTML = adviceHTML;
+    }
 
     form.addEventListener('submit', async e => {
       e.preventDefault();
@@ -544,17 +734,26 @@
             category = 'Düşük Risk';
           }
 
-          // AI tavsiyesi
-          const adviceMap = {
-            'Çok Yüksek Risk': `Lütfen acilen bir kardiyoloğa başvurunuz.\nAcil yardım almanız gerekebilir.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
-            'Yüksek Risk': `Yakın zamanda detaylı sağlık kontrollerinizi yaptırmanızı öneririz.\nSağlıklı beslenmeye ve düzenli egzersize özen gösteriniz.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
-            'Orta Risk': `Belirtileriniz varsa doktorunuza danışmanız faydalı olur.\nYaşam tarzınızda küçük değişiklikler yapabilirsiniz.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
-            'Düşük Risk': `Riskiniz düşük gözüküyor. Sağlıklı yaşamaya devam edin.\nDüzenli kontrollerinizi ihmal etmeyin.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`
-          };
-
-          // Sonuçları göster
+          // Display risk score
           riskScoreEl.textContent = `Risk Seviyeniz: ${category}`;
-          aiAdviceEl.textContent = adviceMap[category];
+          
+          // Display AI advice if available
+          if (result.ai_advice) {
+            displayAIAdvice(result.ai_advice);
+          } else {
+            // Fallback advice
+            const adviceMap = {
+              'Çok Yüksek Risk': `Lütfen acilen bir kardiyoloğa başvurunuz.\nAcil yardım almanız gerekebilir.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
+              'Yüksek Risk': `Yakın zamanda detaylı sağlık kontrollerinizi yaptırmanızı öneririz.\nSağlıklı beslenmeye ve düzenli egzersize özen gösteriniz.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
+              'Orta Risk': `Belirtileriniz varsa doktorunuza danışmanız faydalı olur.\nYaşam tarzınızda küçük değişiklikler yapabilirsiniz.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
+              'Düşük Risk': `Riskiniz düşük gözüküyor. Sağlıklı yaşamaya devam edin.\nDüzenli kontrollerinizi ihmal etmeyin.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`
+            };
+            
+            aiAdviceEl.innerHTML = `<div class="ai-section">
+              <h3>💡 Genel Öneriler</h3>
+              <p style="white-space: pre-line;">${adviceMap[category]}</p>
+            </div>`;
+          }
 
           resultContainer.style.display = 'block';
 

@@ -4,6 +4,12 @@ from db_creator import Session, User, Patient, Doktor, Health_data, suggestions
 import os
 from ml_model_integration import initialize_ml_model, get_risk_prediction
 
+# Add AI integration imports
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), 'Gemini'))
+from Gemini.health_integration import get_health_analysis, get_health_summary
+from Gemini.health_advisor import get_health_advice
+
 app = Flask(__name__, static_folder='templates', static_url_path='')
 app.secret_key = 'supersecretkey'  # Change this in production
 
@@ -12,6 +18,15 @@ db_creator.ignition()
 # Initialize ML model on startup
 print("Initializing ML model...")
 initialize_ml_model()
+
+# Initialize AI integration
+print("Initializing AI integration...")
+try:
+    from Gemini.health_integration import health_integration
+    health_integration.initialize()
+    print("AI integration initialized successfully")
+except Exception as e:
+    print(f"Warning: AI integration failed to initialize: {e}")
 
 @app.route('/')
 def home():
@@ -348,7 +363,7 @@ def get_suggestions(user_id):
     session_db.close()
     return jsonify({'success': True, 'suggestions': result}), 200
 
-# Risk assessment endpoint with ML model integration
+# Risk assessment endpoint with ML model integration and AI advice
 @app.route('/risk-assessment', methods=['POST'])
 def risk_assessment():
     if 'user_id' not in session:
@@ -449,6 +464,27 @@ def risk_assessment():
         risk_percentage = min(risk_score * 8, 100)  # Convert to percentage
         confidence = 0.7  # Default confidence
     
+    # Get AI advice based on risk assessment
+    ai_advice = None
+    try:
+        # Prepare risk data for AI
+        risk_data = {
+            'risk_label': risk_label if ml_prediction else (1 if risk_level <= 2 else 0),
+            'risk_percentage': risk_percentage,
+            'confidence': confidence
+        }
+        
+        # Get AI health advice
+        ai_advice = get_health_advice(risk_data, ml_data)
+        
+        # If AI advice fails, provide fallback advice
+        if ai_advice and 'error' in ai_advice:
+            ai_advice = None
+            
+    except Exception as e:
+        print(f"AI advice error: {e}")
+        ai_advice = None
+    
     # Create health data record
     health_data = Health_data(
         user_id=session['user_id'],
@@ -477,14 +513,65 @@ def risk_assessment():
     session_db.commit()
     session_db.close()
     
-    return jsonify({
+    # Prepare response with AI advice
+    response_data = {
         'success': True, 
         'risk_score': risk_percentage,
         'risk_level': risk_level,
         'bmi': round(bmi, 2),
         'confidence': round(confidence, 3),
         'ml_prediction': ml_prediction is not None
-    }), 200
+    }
+    
+    # Add AI advice to response if available
+    if ai_advice and 'error' not in ai_advice:
+        response_data['ai_advice'] = ai_advice
+    else:
+        # Provide fallback advice based on risk level
+        fallback_advice = {
+            'risk_assessment': {
+                'risk_level': 'Yüksek' if risk_level >= 3 else 'Düşük',
+                'risk_percentage': risk_percentage,
+                'interpretation': 'Risk seviyesi değerlendirmesi'
+            },
+            'exercise_recommendations': {
+                'cardio_exercises': [
+                    {
+                        'name': 'Yürüyüş',
+                        'duration': '30-45 dakika',
+                        'frequency': 'Haftada 5-6 kez',
+                        'intensity': 'Orta yoğunluk',
+                        'benefits': 'Kardiyovasküler sağlığı iyileştirir',
+                        'precautions': 'Yavaş başlayın ve kademeli olarak artırın'
+                    }
+                ],
+                'strength_training': [
+                    {
+                        'name': 'Hafif ağırlık egzersizleri',
+                        'sets': '2-3 set',
+                        'reps': '10-15 tekrar',
+                        'frequency': 'Haftada 2-3 kez',
+                        'benefits': 'Kas gücünü artırır',
+                        'precautions': 'Doğru form önemlidir'
+                    }
+                ]
+            },
+            'lifestyle_recommendations': {
+                'daily_activities': [
+                    'Günde en az 30 dakika yürüyüş',
+                    'Asansör yerine merdiven kullanın',
+                    'Düzenli uyku düzeni'
+                ],
+                'stress_management': [
+                    'Derin nefes egzersizleri',
+                    'Meditasyon',
+                    'Hobi aktiviteleri'
+                ]
+            }
+        }
+        response_data['ai_advice'] = fallback_advice
+    
+    return jsonify(response_data), 200
 
 # Get current user info
 @app.route('/user/info', methods=['GET'])
