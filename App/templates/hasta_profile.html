@@ -278,13 +278,13 @@
       <form onsubmit="handleSave(event)">
         <label>Ad Soyad</label>
         <div class="field-row">
-          <input type="text" id="name" value="Osman Furkan Erkan" readonly />
+          <input type="text" id="name" value="Yükleniyor..." readonly />
           <button type="button" class="btn-update" onclick="enableEdit('name')">Güncelle</button>
         </div>
 
         <label>E-posta</label>
         <div class="field-row">
-          <input type="email" id="email" value="furkan@mail.com" readonly />
+          <input type="email" id="email" value="Yükleniyor..." readonly />
           <button type="button" class="btn-update" onclick="enableEdit('email')">Güncelle</button>
         </div>
 
@@ -326,6 +326,52 @@
   </footer>
 
   <script>
+    // Load user data when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      loadUserData();
+    });
+
+    async function loadUserData() {
+      try {
+        const response = await fetch('/user/info', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.user) {
+          const user = data.user;
+          
+          // Update name field
+          const nameField = document.getElementById('name');
+          if (user.name && user.surname) {
+            nameField.value = `${user.name} ${user.surname}`;
+          } else {
+            nameField.value = 'Ad Soyad bilgisi bulunamadı';
+          }
+
+          // Update email field
+          const emailField = document.getElementById('email');
+          if (user.username) {
+            emailField.value = user.username;
+          } else {
+            emailField.value = 'E-posta bilgisi bulunamadı';
+          }
+        } else {
+          console.error('Failed to load user data:', data.message);
+          document.getElementById('name').value = 'Veri yüklenemedi';
+          document.getElementById('email').value = 'Veri yüklenemedi';
+        }
+      } catch (error) {
+        console.error('Error loading user data:', error);
+        document.getElementById('name').value = 'Bağlantı hatası';
+        document.getElementById('email').value = 'Bağlantı hatası';
+      }
+    }
+
     function enableEdit(id) {
       const input = document.getElementById(id);
       input.removeAttribute("readonly");
@@ -336,19 +382,40 @@
       document.getElementById("newPasswordBox").style.display = "block";
     }
 
-    function handleSave(e) {
+    async function handleSave(e) {
       e.preventDefault();
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const password = document.getElementById("new-password").value;
 
-      alert("Bilgiler kaydedildi:\n\n" +
-        "Ad Soyad: " + name + "\n" +
-        "E-posta: " + email + "\n" +
-        "Yeni Şifre: " + (password ? password : "(Değişmedi)"));
+      try {
+        const response = await fetch('/profile/update', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password || null
+          })
+        });
 
-      document.getElementById("name").setAttribute("readonly", true);
-      document.getElementById("email").setAttribute("readonly", true);
+        const data = await response.json();
+
+        if (data.success) {
+          alert("Bilgiler başarıyla kaydedildi!");
+          document.getElementById("name").setAttribute("readonly", true);
+          document.getElementById("email").setAttribute("readonly", true);
+          document.getElementById("newPasswordBox").style.display = "none";
+          document.getElementById("new-password").value = "";
+        } else {
+          alert("Hata: " + data.message);
+        }
+      } catch (error) {
+        console.error('Error saving profile:', error);
+        alert("Kaydetme sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+      }
     }
   </script>
 
