@@ -87,11 +87,16 @@
     /* MAIN CONTENT */
     .main-content {
       background-image: url("doktor-hasta-arkaplan.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       flex: 1;
       padding: 2rem;
       padding-bottom: 6rem;
       overflow-y: auto;
       margin-left: 240px; /* sidebar genişliği kadar boşluk */
+      min-height: 100vh;
     }
 
     .page-title {
@@ -541,10 +546,10 @@
 
           // AI tavsiyesi
           const adviceMap = {
-            'Çok Yüksek Risk': `Lütfen acilen bir kardiyoloğa başvurunuz.\nAcil yardım almanız gerekebilir.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}\nModel Güveni: ${(result.confidence * 100).toFixed(1)}%`,
-            'Yüksek Risk': `Yakın zamanda detaylı sağlık kontrollerinizi yaptırmanızı öneririz.\nSağlıklı beslenmeye ve düzenli egzersize özen gösteriniz.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}\nModel Güveni: ${(result.confidence * 100).toFixed(1)}%`,
-            'Orta Risk': `Belirtileriniz varsa doktorunuza danışmanız faydalı olur.\nYaşam tarzınızda küçük değişiklikler yapabilirsiniz.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}\nModel Güveni: ${(result.confidence * 100).toFixed(1)}%`,
-            'Düşük Risk': `Riskiniz düşük gözüküyor. Sağlıklı yaşamaya devam edin.\nDüzenli kontrollerinizi ihmal etmeyin.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}\nModel Güveni: ${(result.confidence * 100).toFixed(1)}%`
+            'Çok Yüksek Risk': `Lütfen acilen bir kardiyoloğa başvurunuz.\nAcil yardım almanız gerekebilir.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
+            'Yüksek Risk': `Yakın zamanda detaylı sağlık kontrollerinizi yaptırmanızı öneririz.\nSağlıklı beslenmeye ve düzenli egzersize özen gösteriniz.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
+            'Orta Risk': `Belirtileriniz varsa doktorunuza danışmanız faydalı olur.\nYaşam tarzınızda küçük değişiklikler yapabilirsiniz.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
+            'Düşük Risk': `Riskiniz düşük gözüküyor. Sağlıklı yaşamaya devam edin.\nDüzenli kontrollerinizi ihmal etmeyin.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`
           };
 
           // Sonuçları göster
