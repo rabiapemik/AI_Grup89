@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VitaCheck | Profil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #fffafa;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 240px;
+      height: 100vh;
+      background-color: #ffffff;
+      color: #e63946;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid #f0f0f0;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 2rem;
+      cursor: pointer;
+    }
+
+    .logo-container img {
+      width: 200px;
+      height: auto;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-grow: 1;
+    }
+
+    .menu-link {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+      display: block;
+    }
+
+    .menu-link:hover {
+      background-color: #ffe5e5;
+    }
+
+    .menu-link.active {
+      background-color: #ffe5e5;
+      font-weight: 700;
+    }
+
+    .menu a + a {
+      border-top: 1px solid #f3c5c5;
+      margin-top: 4px;
+      padding-top: 0.75rem;
+    }
+
+    main.main-content {
+      margin-left: 240px;
+      padding: 2rem;
+      padding-bottom: 6rem;
+      min-height: 100vh;
+      background-image: url("doktor-hasta-arkaplan.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow-y: auto;
+    }
+
+    h1.page-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #e63946;
+    }
+
+    h2 {
+      color: #e63946;
+      margin-bottom: 1rem;
+    }
+
+    .section {
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-left: 4px solid #e63946;
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      max-width: 700px;
+    }
+
+    .section label {
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    .field-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .field-row input {
+      flex: 1;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .field-row input[readonly] {
+      background-color: #f4f4f4;
+    }
+
+    .btn-update {
+      background-color: #999;
+      color: white;
+      border: none;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .btn-update:hover {
+      background-color: #777;
+    }
+
+    .btn-save {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      max-width: 200px;
+    }
+
+    .btn-save:hover {
+      background-color: #c92a3c;
+    }
+
+    .log-box {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 1rem;
+      height: 200px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 0.95rem;
+      max-width: 700px;
+    }
+
+    .new-password-box {
+      margin-top: 0.5rem;
+      display: none;
+      max-width: 700px;
+    }
+
+    #new-password {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    #new-password:focus {
+      outline: none;
+      border-color: #e63946;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      max-width: 700px;
+    }
+
+    li {
+      margin-bottom: 0.6rem;
+    }
+
+    .page-title {
+      font-size: 1.8rem;
+      color: #e63946;
+      margin-bottom: 1.2rem;
+    }
+
+    footer {
+      /* position: fixed;  <-- kaldır */
+      /* bottom: 0;        <-- kaldır */
+      /* left: 240px;      <-- bırakabilirsin margin-left için */
+      margin-left: 240px;
+      background-color: #e63946;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+      z-index: 1000;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      text-align: center; 
+      /* width: auto; veya kaldır */
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      main.main-content {
+        margin-left: 0;
+        padding: 1rem;
+      }
+      footer {
+        left: 0;
+        width: 100vw;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="logo-container" onclick="location.href='VitaChech-homepage.html'">
+      <img src="logo.jpg" alt="VitaCheck Logo" />
+    </div>
+    <nav class="menu">
+      <a href="hasta-homepage.html" class="menu-link">🏠 Anasayfa</a>
+      <a href="hasta_profile.html" class="menu-link active">👤 Profil</a>
+      <a href="hastanın-doctor.html" class="menu-link">👨‍⚕️ Doktorum</a>
+      <a href="hasta-raporlarim.html" class="menu-link">📄 Raporlarım</a>
+      <a href="hasta-riskibelirle.html" class="menu-link">📊 Riskimi Belirle</a>
+      <a href="hasta-risksonuçları.html" class="menu-link">📊 Risk Sonuçları</a>
+      <a href="hasta-about.html" class="menu-link">❓ VitaCheck Nedir?</a>
+      <a href="hasta-contact.html" class="menu-link">📞 İletişim</a>
+      <a href="VitaChech-homepage.html" class="menu-link" style="border-top: 1px solid #f3c5c5; margin-top: 8px; padding-top: 1rem;">🚪 Çıkış Yap</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-title">Profilim</div>
+
+    <section class="section">
+      <h2>Kullanıcı Bilgileri</h2>
+      <form onsubmit="handleSave(event)">
+        <label>Ad Soyad</label>
+        <div class="field-row">
+          <input type="text" id="name" value="Yükleniyor..." readonly />
+          <button type="button" class="btn-update" onclick="enableEdit('name')">Güncelle</button>
+        </div>
+
+        <label>E-posta</label>
+        <div class="field-row">
+          <input type="email" id="email" value="Yükleniyor..." readonly />
+          <button type="button" class="btn-update" onclick="enableEdit('email')">Güncelle</button>
+        </div>
+
+        <label>Şifre</label>
+        <div class="field-row">
+          <input type="password" id="password" value="********" readonly />
+          <button type="button" class="btn-update" onclick="showNewPassword()">Şifreyi Değiştir</button>
+        </div>
+
+        <div class="new-password-box" id="newPasswordBox">
+          <label for="new-password">Yeni Şifre</label>
+          <input type="password" id="new-password" placeholder="Yeni şifreyi girin" />
+        </div>
+
+        <button type="submit" class="btn-save">Değişiklikleri Kaydet</button>
+      </form>
+    </section>
+
+    <section class="section">
+      <h2>Geçmiş Kalp Testleri</h2>
+      <div id="test-log" class="log-box">
+        <p>🫀 10.06.2025 - Orta risk - Yorum: Beslenme dikkat edilmeli.</p>
+        <p>🫀 01.05.2025 - Yüksek risk - Yorum: Mutlaka doktora danışılmalı.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Diyet ve Spor Önerileri (AI)</h2>
+      <ul>
+        <li>🥗 Haftada 3 gün sebze ağırlıklı öğünler</li>
+        <li>🏃 Günde 30 dakika tempolu yürüyüş</li>
+        <li>💧 Günde en az 2 litre su tüketimi</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 VitaCheck. Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    // Load user data when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      loadUserData();
+    });
+
+    async function loadUserData() {
+      try {
+        const response = await fetch('/user/info', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.user) {
+          const user = data.user;
+          
+          // Update name field
+          const nameField = document.getElementById('name');
+          if (user.name && user.surname) {
+            nameField.value = `${user.name} ${user.surname}`;
+          } else {
+            nameField.value = 'Ad Soyad bilgisi bulunamadı';
+          }
+
+          // Update email field
+          const emailField = document.getElementById('email');
+          if (user.username) {
+            emailField.value = user.username;
+          } else {
+            emailField.value = 'E-posta bilgisi bulunamadı';
+          }
+        } else {
+          console.error('Failed to load user data:', data.message);
+          document.getElementById('name').value = 'Veri yüklenemedi';
+          document.getElementById('email').value = 'Veri yüklenemedi';
+        }
+      } catch (error) {
+        console.error('Error loading user data:', error);
+        document.getElementById('name').value = 'Bağlantı hatası';
+        document.getElementById('email').value = 'Bağlantı hatası';
+      }
+    }
+
+    function enableEdit(id) {
+      const input = document.getElementById(id);
+      input.removeAttribute("readonly");
+      input.focus();
+    }
+
+    function showNewPassword() {
+      document.getElementById("newPasswordBox").style.display = "block";
+    }
+
+    async function handleSave(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("new-password").value;
+
+      try {
+        const response = await fetch('/profile/update', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password || null
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          alert("Bilgiler başarıyla kaydedildi!");
+          document.getElementById("name").setAttribute("readonly", true);
+          document.getElementById("email").setAttribute("readonly", true);
+          document.getElementById("newPasswordBox").style.display = "none";
+          document.getElementById("new-password").value = "";
+        } else {
+          alert("Hata: " + data.message);
+        }
+      } catch (error) {
+        console.error('Error saving profile:', error);
+        alert("Kaydetme sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+      }
+    }
+  </script>
+
+</body>
+</html>

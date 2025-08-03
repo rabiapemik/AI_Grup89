@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VitaCheck | Riskini Belirle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background-color: #fffafa;
+      color: #444;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex: 1;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 240px;
+      background-color: #ffffff;
+      color: #e63946;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid #f0f0f0;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo-container img {
+      width: 200px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .menu-link {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+      display: block;
+    }
+
+    .menu-link:hover {
+      background-color: #ffe5e5;
+    }
+
+    .menu-link.active {
+      background-color: #ffe5e5;
+      font-weight: 700;
+    }
+
+    .menu a + a {
+      border-top: 1px solid #f3c5c5;
+      margin-top: 4px;
+      padding-top: 0.75rem;
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      background-image: url("doktor-hasta-arkaplan.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      flex: 1;
+      padding: 2rem;
+      padding-bottom: 6rem;
+      overflow-y: auto;
+      margin-left: 240px; /* sidebar genişliği kadar boşluk */
+      min-height: 100vh;
+    }
+
+    .page-title {
+      font-size: 1.8rem;
+      color: #e63946;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 8px 24px rgba(230, 57, 70, 0.15);
+      max-width: 720px;
+      font-size: 1rem;
+      user-select: none;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    section h3 {
+      color: #e63946;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      font-size: 1.3rem;
+      border-left: 4px solid #e63946;
+      padding-left: 0.8rem;
+    }
+
+    .field-group {
+      margin-bottom: 1.6rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+      font-size: 1.05rem;
+      cursor: pointer;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 3rem;
+      margin-top: 0.4rem;
+    }
+
+    .radio-group label {
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s ease;
+      font-size: 1rem;
+    }
+
+    .radio-group input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: #e63946;
+    }
+
+    .radio-group label:hover {
+      color: #b72a35;
+    }
+
+    input[type="number"] {
+      width: 120px;
+      padding: 0.6rem 0.9rem;
+      border: 2px solid #e63946;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #222;
+      transition: border-color 0.3s ease;
+      outline-offset: 3px;
+    }
+
+    input[type="number"]:focus {
+      border-color: #b72a35;
+      box-shadow: 0 0 8px #e63946cc;
+      outline: none;
+    }
+
+    button[type="submit"] {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 1.1rem 3rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      width: max-content;
+      letter-spacing: 0.06em;
+      box-shadow: 0 8px 20px rgba(230, 57, 70, 0.55);
+      user-select: none;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #b72a35;
+      box-shadow: 0 10px 25px rgba(183, 42, 53, 0.8);
+    }
+
+    /* Sonuç ve Tavsiye kutusu */
+    #result-container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 8px 24px rgba(230, 57, 70, 0.15);
+      max-width: 720px;
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      user-select: none;
+      display: none; /* Başta gizli */
+    }
+
+    #result-container h2 {
+      color: #e63946;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    #risk-score {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #b72a35;
+      margin-bottom: 1rem;
+    }
+
+    #ai-advice {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 2px solid #e63946;
+      color: #444;
+      font-weight: 600;
+    }
+
+    .ai-section {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(230, 57, 70, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid #e63946;
+    }
+
+    .ai-section h3 {
+      color: #e63946;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    .exercise-card {
+      background: white;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: 1px solid #e63946;
+    }
+
+    .exercise-card h4 {
+      color: #e63946;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .exercise-details {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .lifestyle-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .lifestyle-list li {
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .lifestyle-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* FOOTER - sabit değil, sayfanın sonunda */
+    footer {
+      background-color: #e63946;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      text-align: center; 
+      margin-left: 240px; /* Sidebar genişliği kadar boşluk bırak */
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .main-content {
+        margin-left: 0;
+      }
+      footer {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content-wrapper">
+
+    <aside class="sidebar">
+      <div class="logo-container" onclick="location.href='VitaChech-homepage.html'">
+        <img src="logo.jpg" alt="VitaCheck Logo" />
+      </div>
+      <nav class="menu">
+        <a href="hasta-homepage.html" class="menu-link">🏠 Anasayfa</a>
+        <a href="hasta_profile.html" class="menu-link">👤 Profil</a>
+        <a href="hastanın-doctor.html" class="menu-link">👨‍⚕️ Doktorum</a>
+        <a href="hasta-raporlarim.html" class="menu-link">📄 Raporlarım</a>
+        <a href="hasta-riskibelirle.html" class="menu-link active">📊 Riskimi Belirle</a>
+        <a href="hasta-risksonuçları.html" class="menu-link">📊 Risk Sonuçları</a>
+        <a href="hasta-about.html" class="menu-link">❓ VitaCheck Nedir?</a>
+        <a href="hasta-contact.html" class="menu-link">📞 İletişim</a>
+        <a href="VitaChech-homepage.html" class="menu-link" style="border-top: 1px solid #f3c5c5; margin-top: 8px; padding-top: 1rem;">🚪 Çıkış Yap</a>
+      </nav>
+    </aside>
+
+    <main class="main-content" tabindex="-1">
+      <div class="page-title">Riskini Belirle</div>
+
+      <!-- Anket Formu -->
+      <form id="risk-form" novalidate>
+        <section>
+          <h3>Belirtiler</h3>
+
+          <div class="field-group">
+            <label>Göğsünüzde ağrı oluyor mu?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="chest_pain" value="evet" required> Evet</label>
+              <label><input type="radio" name="chest_pain" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Nefes almakta zorlanıyor musunuz?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="shortness_of_breath" value="evet" required> Evet</label>
+              <label><input type="radio" name="shortness_of_breath" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Sebepsiz yere kendinizi yorgun hissediyor musunuz?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="bitkinlik" value="evet" required> Evet</label>
+              <label><input type="radio" name="bitkinlik" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Kalbiniz hızlı veya düzensiz atıyor mu?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="carpinti" value="evet" required> Evet</label>
+              <label><input type="radio" name="carpinti" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Sık sık baş dönmesi veya bayılma yaşıyor musunuz?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="bas_donmesi" value="evet" required> Evet</label>
+              <label><input type="radio" name="bas_donmesi" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Bacaklarınızda veya ayak bileklerinizde şişlik var mı?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="sislik" value="evet" required> Evet</label>
+              <label><input type="radio" name="sislik" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Kol, çene, boyun veya sırtınızda ağrı hissediyor musunuz?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="radiating_pain" value="evet" required> Evet</label>
+              <label><input type="radio" name="radiating_pain" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Soğuk terleme veya mide bulantısı oluyor mu?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="cold_sweats" value="evet" required> Evet</label>
+              <label><input type="radio" name="cold_sweats" value="hayır"> Hayır</label>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Risk Faktörleri</h3>
+
+          <div class="field-group">
+            <label for="yas">Kaç yaşındasınız?</label>
+            <input type="number" id="yas" name="yas" min="0" max="120" required />
+          </div>
+
+          <div class="field-group">
+            <label>Yüksek tansiyonunuz var mı?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="hipertansiyon" value="evet" required> Evet</label>
+              <label><input type="radio" name="hipertansiyon" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Kolesterol seviyeniz yüksek mi?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="kolesterol" value="evet" required> Evet</label>
+              <label><input type="radio" name="kolesterol" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Sigara kullanıyor musunuz?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="sigara" value="evet" required> Evet</label>
+              <label><input type="radio" name="sigara" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Şeker hastalığınız (diyabet) var mı?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="diyabet" value="evet" required> Evet</label>
+              <label><input type="radio" name="diyabet" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Ailede kalp hastalığı öyküsü var mı?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="aile_hikayesi" value="evet" required> Evet</label>
+              <label><input type="radio" name="aile_hikayesi" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Hareketsiz yaşam tarzınız var mı?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="hareketsiz_yasam" value="evet" required> Evet</label>
+              <label><input type="radio" name="hareketsiz_yasam" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Kronik stres yaşıyor musunuz?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="kronik_stres" value="evet" required> Evet</label>
+              <label><input type="radio" name="kronik_stres" value="hayır"> Hayır</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Cinsiyetiniz nedir?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="cinsiyet" value="erkek" required> Erkek</label>
+              <label><input type="radio" name="cinsiyet" value="kadin"> Kadın</label>
+            </div>
+          </div>
+        </section>
+
+        <button type="submit">Riskimi Hesapla</button>
+      </form>
+
+      <div id="result-container" aria-live="polite" role="region">
+        <h2>Risk Değerlendirmeniz</h2>
+        <div id="risk-score"></div>
+        
+        <!-- AI Advice Section -->
+        <div id="ai-advice">
+          <div class="ai-section" id="exercise-recommendations" style="display: none;">
+            <h3>🏃‍♂️ Egzersiz Önerileri</h3>
+            <div id="cardio-exercises"></div>
+            <div id="strength-exercises"></div>
+          </div>
+          
+          <div class="ai-section" id="lifestyle-recommendations" style="display: none;">
+            <h3>💪 Yaşam Tarzı Önerileri</h3>
+            <div id="daily-activities"></div>
+            <div id="stress-management"></div>
+          </div>
+          
+          <div class="ai-section" id="health-monitoring" style="display: none;">
+            <h3>📊 Sağlık Takibi</h3>
+            <div id="vital-signs"></div>
+            <div id="warning-signs"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 VitaCheck. Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    // Form gönderimi ve risk hesaplama
+    const form = document.getElementById('risk-form');
+    const resultContainer = document.getElementById('result-container');
+    const riskScoreEl = document.getElementById('risk-score');
+    const aiAdviceEl = document.getElementById('ai-advice');
+
+    // Function to display AI advice
+    function displayAIAdvice(aiAdvice) {
+      let adviceHTML = '';
+      
+      // Exercise recommendations
+      if (aiAdvice.exercise_recommendations) {
+        const exerciseRec = aiAdvice.exercise_recommendations;
+        adviceHTML += '<div class="ai-section" id="exercise-recommendations">';
+        adviceHTML += '<h3>🏃‍♂️ Egzersiz Önerileri</h3>';
+        
+        // Cardio exercises
+        if (exerciseRec.cardio_exercises && exerciseRec.cardio_exercises.length > 0) {
+          adviceHTML += '<h4>Kardiyovasküler Egzersizler:</h4>';
+          exerciseRec.cardio_exercises.forEach(exercise => {
+            adviceHTML += `<div class="exercise-card">
+              <h4>${exercise.name}</h4>
+              <div class="exercise-details">
+                <strong>Süre:</strong> ${exercise.duration}<br>
+                <strong>Sıklık:</strong> ${exercise.frequency}<br>
+                <strong>Yoğunluk:</strong> ${exercise.intensity}<br>
+                <strong>Faydalar:</strong> ${exercise.benefits}<br>
+                <strong>Dikkat:</strong> ${exercise.precautions}
+              </div>
+            </div>`;
+          });
+        }
+        
+        // Strength training
+        if (exerciseRec.strength_training && exerciseRec.strength_training.length > 0) {
+          adviceHTML += '<h4>Güçlendirme Egzersizleri:</h4>';
+          exerciseRec.strength_training.forEach(exercise => {
+            adviceHTML += `<div class="exercise-card">
+              <h4>${exercise.name}</h4>
+              <div class="exercise-details">
+                <strong>Set:</strong> ${exercise.sets}<br>
+                <strong>Tekrar:</strong> ${exercise.reps}<br>
+                <strong>Sıklık:</strong> ${exercise.frequency}<br>
+                <strong>Faydalar:</strong> ${exercise.benefits}<br>
+                <strong>Dikkat:</strong> ${exercise.precautions}
+              </div>
+            </div>`;
+          });
+        }
+        
+        adviceHTML += '</div>';
+      }
+      
+      // Lifestyle recommendations
+      if (aiAdvice.lifestyle_recommendations) {
+        const lifestyleRec = aiAdvice.lifestyle_recommendations;
+        adviceHTML += '<div class="ai-section" id="lifestyle-recommendations">';
+        adviceHTML += '<h3>💪 Yaşam Tarzı Önerileri</h3>';
+        
+        if (lifestyleRec.daily_activities && lifestyleRec.daily_activities.length > 0) {
+          adviceHTML += '<h4>Günlük Aktiviteler:</h4>';
+          adviceHTML += '<ul class="lifestyle-list">';
+          lifestyleRec.daily_activities.forEach(activity => {
+            adviceHTML += `<li>• ${activity}</li>`;
+          });
+          adviceHTML += '</ul>';
+        }
+        
+        if (lifestyleRec.stress_management && lifestyleRec.stress_management.length > 0) {
+          adviceHTML += '<h4>Stres Yönetimi:</h4>';
+          adviceHTML += '<ul class="lifestyle-list">';
+          lifestyleRec.stress_management.forEach(technique => {
+            adviceHTML += `<li>• ${technique}</li>`;
+          });
+          adviceHTML += '</ul>';
+        }
+        
+        adviceHTML += '</div>';
+      }
+      
+      // Health monitoring
+      if (aiAdvice.health_monitoring) {
+        const healthMon = aiAdvice.health_monitoring;
+        adviceHTML += '<div class="ai-section" id="health-monitoring">';
+        adviceHTML += '<h3>📊 Sağlık Takibi</h3>';
+        
+        if (healthMon.vital_signs && healthMon.vital_signs.length > 0) {
+          adviceHTML += '<h4>Takip Edilmesi Gereken Vital Bulgular:</h4>';
+          adviceHTML += '<ul class="lifestyle-list">';
+          healthMon.vital_signs.forEach(sign => {
+            adviceHTML += `<li>• ${sign}</li>`;
+          });
+          adviceHTML += '</ul>';
+        }
+        
+        if (healthMon.warning_signs && healthMon.warning_signs.length > 0) {
+          adviceHTML += '<h4>Dikkat Edilmesi Gereken Uyarı İşaretleri:</h4>';
+          adviceHTML += '<ul class="lifestyle-list">';
+          healthMon.warning_signs.forEach(sign => {
+            adviceHTML += `<li>• ${sign}</li>`;
+          });
+          adviceHTML += '</ul>';
+        }
+        
+        adviceHTML += '</div>';
+      }
+      
+      // Emergency guidance
+      if (aiAdvice.emergency_guidance) {
+        const emergencyGuid = aiAdvice.emergency_guidance;
+        adviceHTML += '<div class="ai-section" id="emergency-guidance">';
+        adviceHTML += '<h3>🚨 Acil Durum Rehberi</h3>';
+        
+        if (emergencyGuid.when_to_seek_help && emergencyGuid.when_to_seek_help.length > 0) {
+          adviceHTML += '<h4>Acil Durum Belirtileri:</h4>';
+          adviceHTML += '<ul class="lifestyle-list">';
+          emergencyGuid.when_to_seek_help.forEach(symptom => {
+            adviceHTML += `<li>• ${symptom}</li>`;
+          });
+          adviceHTML += '</ul>';
+        }
+        
+        adviceHTML += '</div>';
+      }
+      
+      aiAdviceEl.innerHTML = adviceHTML;
+    }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      // List all expected field names from the form
+      const expectedFields = [
+        'chest_pain', 'shortness_of_breath', 'bitkinlik', 'carpinti', 'bas_donmesi', 'sislik',
+        'radiating_pain', 'cold_sweats', 'yas', 'hipertansiyon', 'kolesterol', 'sigara', 'diyabet',
+        'aile_hikayesi', 'hareketsiz_yasam', 'kronik_stres', 'cinsiyet'
+      ];
+
+      // Get form data
+      const formData = new FormData(form);
+      const data = {};
+
+      // For each expected field, get value or default
+      expectedFields.forEach(field => {
+        let value = formData.get(field);
+        if (field === 'yas') {
+          data[field] = value ? parseInt(value) : 0;
+        } else if (field === 'cinsiyet') {
+          data[field] = value || 'kadin'; // default to 'kadin'
+        } else {
+          data[field] = value === 'evet' ? 1 : 0;
+        }
+      });
+
+      // Debug: Log the raw form data
+      console.log('Raw form data:', data);
+
+      // Map form field names to English for the backend
+      const mappedData = {
+        age: data.yas || 0,
+        gender: data.cinsiyet === 'erkek' ? 1 : 0,
+        chest_pain: data.chest_pain,
+        shortness_of_breath: data.shortness_of_breath,
+        fatigue: data.bitkinlik,
+        palpitations: data.carpinti,
+        dizziness: data.bas_donmesi,
+        swelling: data.sislik,
+        radiating_pain: data.radiating_pain,
+        cold_sweats: data.cold_sweats,
+        hypertension: data.hipertansiyon,
+        colestrol_high: data.kolesterol,
+        smoker: data.sigara,
+        diabetes: data.diyabet,
+        family_history: data.aile_hikayesi,
+        sedentary_lifestyle: data.hareketsiz_yasam,
+        chronic_stress: data.kronik_stres,
+        // Provide default values for weight/height if you want
+        weight: 70,
+        height: 170
+      };
+
+      // Debug: Log the mapped data
+      console.log('Mapped data:', mappedData);
+
+      try {
+        const response = await fetch('/risk-assessment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(mappedData)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Determine risk category
+          let category = '';
+          if (result.risk_level === 4) {
+            category = 'Çok Yüksek Risk';
+          } else if (result.risk_level === 3) {
+            category = 'Yüksek Risk';
+          } else if (result.risk_level === 2) {
+            category = 'Orta Risk';
+          } else {
+            category = 'Düşük Risk';
+          }
+
+          // Display risk score
+          riskScoreEl.textContent = `Risk Seviyeniz: ${category}`;
+          
+          // Display AI advice if available
+          if (result.ai_advice) {
+            displayAIAdvice(result.ai_advice);
+          } else {
+            // Fallback advice
+            const adviceMap = {
+              'Çok Yüksek Risk': `Lütfen acilen bir kardiyoloğa başvurunuz.\nAcil yardım almanız gerekebilir.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
+              'Yüksek Risk': `Yakın zamanda detaylı sağlık kontrollerinizi yaptırmanızı öneririz.\nSağlıklı beslenmeye ve düzenli egzersize özen gösteriniz.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
+              'Orta Risk': `Belirtileriniz varsa doktorunuza danışmanız faydalı olur.\nYaşam tarzınızda küçük değişiklikler yapabilirsiniz.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`,
+              'Düşük Risk': `Riskiniz düşük gözüküyor. Sağlıklı yaşamaya devam edin.\nDüzenli kontrollerinizi ihmal etmeyin.\nRisk skorunuz: ${result.risk_score.toFixed(1)}%\nBMI: ${result.bmi}`
+            };
+            
+            aiAdviceEl.innerHTML = `<div class="ai-section">
+              <h3>💡 Genel Öneriler</h3>
+              <p style="white-space: pre-line;">${adviceMap[category]}</p>
+            </div>`;
+          }
+
+          resultContainer.style.display = 'block';
+
+          // Sayfa scroll'u sonucu gösterilen alana kaydır
+          resultContainer.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          alert('Risk değerlendirmesi sırasında bir hata oluştu. Lütfen tekrar deneyin.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Bağlantı hatası. Lütfen tekrar deneyin.');
+      }
+    });
+  </script>
+</body>
+</html>
