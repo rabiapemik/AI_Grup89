@@ -200,3 +200,74 @@ Bu sprintte, ekibimizin gösterdiği çaba ve iş birliği sayesinde birçok ön
 - Projenin son aşamasında tüm süreci daha iyi yönetebilmek adına üç günde bir toplantı yapılmasına karar verildi.
 - Özellikle yapay zeka entegrasyonu, database ile model bağlantısı ve iyileştirmeler üzerine daha fazla teknik toplantı ve araştırma yapılmasına karar verildi.
 
+# 📌 Sprint 3
+----------------------------------------------------
+## Sprint Notları:  
+Bu sprintte Model ve Sistem Entegrasyonu için yoğun çalışmalar gerçekleştirildi. Backend tarafında Flask ve SQLAlchemy kütüphaneleri, Veri Analizi tarafından pandas ve scikit-learn kütüphaneleri ve Model eğitiminde Graadient Boosting makine öğrenme algoritması kullanıldı. Karşılaşılan hataların düzeltilmesi ve iyileştirilmesini yoğunlaşıldı. Test denemeleri yapıldı. Web sitesi tüm süreçlere entegre şekilde çalışılır hale getirildi. Teknik sorunlar ve zaman yönetiminde gerçekleşek aksaklıklar sebebiyle Web sitesi canlıya alınamadı.
+
+## Sprint için Tahmin Edilen Tamamlanacak Puan: 
+100 Puan
+
+## Tahmin Mantığı: 
+Bütün proje 250 puan olarak belirlendi. 
+1. Sprint: Araştırma ve Planlama (50 Puan)
+2. Sprint: Veri Analizi, Database Tasarımı, Frontend ve Backend (100 Puan)
+3. Sprint: Yapay Zeka Entegrasyonu, İyileştirme ve Optimizasyon (100 Puan) olmak üzere karar verildi.
+
+## Daily Scrum: 
+Bu sprintte, proje entegrasyonunun karmaşıklığı nedeniyle günlük iletişimimiz daha da kritik hale gelmiştir. Tüm ekip üyeleriyle WhatsApp grubu ve planlı Zoom toplantıları aracılığıyla sürekli iletişim halinde kalmaya çalıştık. Bu toplantılarda, backend ve frontend entegrasyonu süreçlerindeki ilerlemeler, karşılaşılan zorluklar (özellikle model entegrasyonu ve veri akışı), test sonuçları ve düzeltilen hatalar üzerine yoğunlaşıldı. Toplantı ve Wp konuşmalarına dahil görüntüler eklenmiştir.
+
+<details>
+  <summary>Toplantı ve Wp Konuşmalarına Dahil Görüntüler</summary>
+
+  ![Açıklama](Sprint3/toplanti.png)  
+  ![Açıklama](Sprint3/wp.png)  
+  ![Açıklama](Sprint3/wp1.png)  
+  ![Açıklama](Sprint3/wp2.png) 
+
+</details>
+
+## Sprint Board Updates: 
+Tamamlanan paketler için takibi trellodan gerçekleştirmekteyiz. Tamamlanan paketlerin görselleri filtrelenerek eklenmiştir. Toplam 37 planlanan iş paketinin tamamı gerçekleştirilmiştir.
+<details>
+  <summary>Sprint-3 Tamamlanan Paketler</summary>
+  
+  ![Açıklama](Sprint3/trello1.png)
+  ![Açıklama](Sprint3/trello2.png)
+
+</details>
+
+## Ürün Durumu: 
+VitaCheck web uygulamamızın tüm temel bileşenleri başarıyla entegre edilmiş ve işlevsel hale getirilmiştir. Makine öğrenimi modelimiz backend ile sorunsuz bir şekilde entegre edilmiş, kullanıcılardan alınan verilerle risk tahmini yapabilmekte ve bu sonuçları frontend arayüzünde görsel olarak sunabilmektedir. Kullanıcı kayıt, giriş, anket doldurma, risk sonuçlarını görüntüleme, doktor panelleri gibi tüm fonksiyonlar test ortamında eksiksiz çalışmaktadır.
+
+Not: Proje, tüm teknik işlevsellikleri tamamlanmış olmasına rağme web sitemizi teknik sorunlar ve zaman yönetimindeki aksaklıklar sebebiyle canlıya alamadık. 
+
+## Sprint Review: 
+**Model ve Sistem Entegrasyonu:**
+- Makine öğrenimi modelinin backend API'si ile sorunsuz bir şekilde entegrasyonu tamamlanmıştır.
+- Backend, frontend'den gelen verileri alıp modele iletmekte, tahmin sonuçlarını almakta ve bunları frontend'e geri göndermektedir.
+
+**Tamamlanmış Süreçler:**
+- Kullanıcı kayıt işleminden başlayarak, anketin doldurulması, risk tahmini alınması ve kişiselleştirilmiş önerilerin görüntülenmesine kadar olan tüm kullanıcı yolculuğu başarıyla entegre edilmiştir.
+
+**Testler ve Hata Giderme:**
+- Uygulamanın tüm katmanlarında (frontend, backend, veritabanı, model entegrasyonu) detaylı testler yapılmıştır.
+- Tespit edilen tüm hataların giderilmesi için iyileştirmeler yapılmıştır.
+
+*- Sprint Katılımcıları: Yakup Sinan Gedikli, İshak Karataş, Osman Furkan Erkan, Rabia Pemik, Gülse Kocabıyık*
+
+## Sprint Retrospective: 
+**Artılarımız:**
+- Yoğun iş yüküne rağmen projemizi önceliklendirerek tamamlamak için gerekli toplantıları  sürekli iletişimi sağladık.
+- Karşılaştığımız teknik zorluklara rağmen yeni çözümler denemek ve çözmek için uğtaştık.
+- Farklı alanlar (Makine Öğrenimi, Backend, Frontend) arasındaki entegrasyon süreçlerini yönetebildik ve sorunsuz bir veri akışı sağlayabildik.
+
+**Geliştirebileceklerimiz**
+- Geliştirme sürecindeki hataların tespitinde ve çözümünde daha hızlı hareket edebilirdik ve web sitesine farklı fonksiyonlar eklemek ve geliştirmek için zaman bırakabilirdik.
+- Canlıya alma sürecinde oluşan teknik sorunlar ve zamanın doğru planlanamaması sebebiyle yetişmemiştir. Doğru zaman yönetimi daha iyi planlama gerçekleştirebilirdik.
+
+**Alınan Kararlar**  
+- Gelecek projelerde, daha erken aşamalarda basit bir canlıya alma denemesi yaparak potansiyel dış sorunları erkenden tespit ederek doğru bir zaman yönetimi gerçekleştirilecektir.
+- Sprintler boyunca tanımlanan iş paketlerinin daha gerçekçi ve daha dengeli dağıtılması gerekmektedir. Yaşanan yoğunluklar bizim için bunu göstermiştir.
+
+
