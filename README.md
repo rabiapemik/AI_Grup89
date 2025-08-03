@@ -220,7 +220,7 @@ Bu sprintte, proje entegrasyonunun karmaşıklığı nedeniyle günlük iletişi
 <details>
   <summary>Toplantı ve Wp Konuşmalarına Dahil Görüntüler</summary>
 
-  ![Açıklama](Sprint3/toplanti.png)  
+  ![Açıklama](Sprint3/toplanti.jpg)  
   ![Açıklama](Sprint3/wp.png)  
   ![Açıklama](Sprint3/wp1.png)  
   ![Açıklama](Sprint3/wp2.png) 
